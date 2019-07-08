@@ -1,0 +1,35 @@
+MultiArrayLeftRight Example
+---------------------------
+
+This example demonstrates a basic multi-device setup which utilises the Ultrahaptics SDK's "Distance Based Selection" Devie Selection mode.
+
+With "Distance Based Selection", controls points are emitted by the device whose centre is closest to the control point. 
+
+A simple example of this is as follows: Two devices are placed side by side, such that, a control point to the left of the line between the devices will be output by the left device and the equivalent for the right.
+
+Note: Distance selection mode, is not suitable for certain cases, for example: Suppose two devices are facing one another and the control point position depends on the position of a hand between the arrays. When the hand is closer to the left device, that device will emit, this is true even if the palm of the hand is facing towards the right device, thus producing no haptics. 
+
+On startup, any connected Ultrahaptics devices will be positioned along the X-Axis, separated by a distance of 50cm.
+
+To use this example:
+
+-Open the MultiArrayExample scene 
+-Import the UCA .unitypackge into your Project.
+-Connect your Ultrahaptics devices via USB.
+-Hit Play
+-You should see that a GameObject is created which represents each Ultrahaptics Device currently connected, with its serial number displayed.
+-If you edit the Transform position.x of the Sensation GameObject, you should see that as it moves, the emitter which is closet to this position is chosen to output control points.
+
+There are two scripts to examine.
+
+*MultiArrayExample.cs* - this script checks for connected devcies on startup and, instantiates GameObjects to represent the device and adds the device to the emitter "pool" of devices.
+
+To add a device into the pool of emitters you use the following metho:
+
+SensationCore.Instance.AddDevice( deviceID, transform )
+
+*UpdateDeviceTransform.cs* - this script demonstrates how to update the transform of a connected device at runtime. To update a device's transform you use the following method:
+
+SensationCore.Instance.SetDeviceTransform( deviceID, transform );
+
+Note: In this pre-release example, we currently have to swap the Y-Z transform rotation values, due to differences in the SDK and Unity's coordinate systems.

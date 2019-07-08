@@ -1,0 +1,30 @@
+from pysensationcore import *
+import sensation_helpers as sh
+
+prefix = "point"
+polylinePath = createInstance("PolylinePath", "PolylinePathInstance")
+points = sh.createList(6)
+connect(points["output"], polylinePath.points)
+
+fingerPatch = sh.createSensationFromPath("<BLOCK_NAME>",
+                        {
+                            ("<FEATURE0>", points["inputs"][0]) : <POINT0>,
+                            ("<FEATURE1>", points["inputs"][1]) : <POINT1>,
+                            ("<FEATURE2>", points["inputs"][2]) : <POINT2>,
+                            ("<FEATURE3>", points["inputs"][3]) : <POINT3>,
+                            ("<FEATURE4>", points["inputs"][4]) : <POINT4>,
+                            ("<FEATURE5>", points["inputs"][5]) : <POINT5>
+                        },
+                        output = polylinePath.out,
+                        drawFrequency = <DRAW_FREQUENCY>,
+                        definedInVirtualSpace = True,
+                        renderMode = <RENDER_MODE>
+                        )
+                        
+setMetaData(fingerPatch.<FEATURE0>, "Input-Visibility", False)                        
+setMetaData(fingerPatch.<FEATURE1>, "Input-Visibility", False)
+setMetaData(fingerPatch.<FEATURE2>, "Input-Visibility", False)
+setMetaData(fingerPatch.<FEATURE3>, "Input-Visibility", False)
+setMetaData(fingerPatch.<FEATURE4>, "Input-Visibility", False)
+setMetaData(fingerPatch.<FEATURE5>, "Input-Visibility", False)
+                        

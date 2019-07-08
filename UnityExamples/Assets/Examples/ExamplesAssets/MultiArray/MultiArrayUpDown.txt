@@ -1,0 +1,20 @@
+MultiArrayUpDown Example
+-------------------------------
+
+This example demonstrates a two-device setup with one STRATOS Inspire (positioned flat on a table pointing upwards) and a STRATOS Explore (facing downwards, positioned 50cm above the Inspire.)
+
+This demo assumes that the following hardware is connected:
+
+-A STRATOS Inspire, on a table facing upwards (the Leap Motion controller for this device will be used in this example)
+-A STRATOS Explore, positioned at 50cm above the Inspire, facing downwards towards the able.
+
+NOTE: The UCA does not currentl support "Direction Based Selection" mode of the SDK, which is designed to take care of which array is active depending on the direction of requested control points
+Instead, we will make use of the "Distance Based Selection" mode of the SDK, and when the palm is facing away from an array, we virtually position it at a distance so far away (10 meters!), that it is no longer considered a viable emitter.
+
+The PalmDirectionManager script determines whether the palm is facing upwards or downwards. Based on this info, a single Ultrahaptics Device is activated, facing the palm.
+
+To use this example:
+
+-Open the MultiArrayExample scene 
+-Import the UCA .unitypackge into your Project.
+-Connect your STRATOS Inspire and Explore devices via USB.
