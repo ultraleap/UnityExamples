@@ -1,9 +1,9 @@
 ## Unity Example Projects ##
 This repo includes additional Unity projects which demonstrate functionality of the UCA.
 
-To use these Examples:
+These projects have been built and tested with Unity 2019.1.8f on Windows 64-bit.
 
-1) Launch Unity, select Open Project and open the UnityExamples Project
+To use these examples, launch Unity, select Open Project and open the UnityExamples Project
 
 The UnityExamples Project includes the following Example Scenes
 
