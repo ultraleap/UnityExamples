@@ -1,0 +1,14 @@
+
+*.lock
+*.csproj
+*.DS_Store
+UnityExamples/.vs/*
+UnityExamples/Assets/StreamingAssets/Python/__pycache__*
+UnityExamples/Assets/StreamingAssets/Python/*.py.meta
+UnityExamples/Assets/UltrahapticsCoreAsset*
+UnityExamples/Library/*
+UnityExamples/obj/*
+UnityExamples/*.sln
+UnityExamples/Temp/*
+UnityExamples/Packages/*
+UnityExamples/Logs/*
