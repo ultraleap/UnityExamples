@@ -1,24 +1,38 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 namespace UltrahapticsCoreAsset.UnityExamples
 {
     public class SensationListManager : MonoBehaviour
     {
-
+        public List<GameObject> sensationRows;
         public RectTransform contentRect;
+
         public GameObject SensationRowPrefab;
-        public List<string> sensationList = null;
-        public List<GameObject> sensationRows = null;
+        public SensationLibrary sensationLibrary;
         public SensationInputPropertyFactory inputPropertyFactory;
         public SensationSource activeSensation;
+
+        public Text activeSensationTopText;
+
         public string selectedSensationName;
+        public string startupSensationName = "CircleSensation";
 
         // Use this for initialization
         void Start()
         {
+            if (sensationLibrary == null)
+            {
+                sensationLibrary = FindObjectOfType<SensationLibrary>();
+            }
             RefreshSensationList();
+
+            // On Start, select the startup Sensation
+            
+            ActivateSensationByName(startupSensationName);
         }
 
         // Used to remove all of the Child Game Objects in Content GameObject.
@@ -32,43 +46,52 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public void RefreshSensationList()
         {
-            BuildSensationList();
+            sensationRows.Clear();
             PopulateSensationRows();
         }
 
-        void BuildSensationList()
-        {
-            sensationList.Clear();
-            List<string> sensationNames = SensationCore.Instance.GetSensationProducingBlockNames();
-            var sortedSensations = sensationNames.OrderBy(s => s);
-            sensationList.AddRange(sortedSensations);
-        }
 
         void PopulateSensationRows()
         {
             GameObject row;
-            for (int i=0; i < sensationList.Count; i++)
+            foreach (string sensationName in sensationLibrary.sensationList)
             {
                 row = (GameObject)Instantiate(SensationRowPrefab, contentRect.transform);
                 var rowUI = row.GetComponent<SensationRowUI>();
-                var sensationName = sensationList[i];
                 rowUI.SetSensationName(sensationName);
                 sensationRows.Add(row);
-                rowUI.button.onClick.AddListener(delegate {SensationSelected(sensationName);});
+                rowUI.button.onClick.AddListener(delegate { SensationSelected(sensationName); });
             }
         }
 
         // This should get called whenever the Button of the SensationRow is clicked.
         public void SensationSelected(string sensationName)
         {
-
-            activeSensation.SensationBlock = sensationName;
+            selectedSensationName = sensationName;
+            activeSensationTopText.text = sensationName;
+            activeSensation.SensationBlock = selectedSensationName;
             activeSensation.OnValidate();
-            activeSensation.enabled = false;
-            activeSensation.Running = true;
 
             // Now pass the Sensation Source to the Sensation Input Property Factory
             inputPropertyFactory.SetSensationInputsFromSensation(activeSensation);
+        }
+
+        // TODO: This method needs to activate the row item with a given 
+        // Sensation name...
+        public void ActivateSensationByName(string sensationName)
+        {
+            // Get index of sensationName in list
+            int index = sensationLibrary.sensationList.ToList().IndexOf(sensationName);
+            if (index > sensationRows.Count-1)
+            {
+                Debug.LogWarning("Unable to select sensation named: " + sensationName);
+                return;
+            }
+            var activeRow = sensationRows[index];
+            var rowUI = activeRow.GetComponent<SensationRowUI>();
+
+            rowUI.button.onClick.Invoke();
+            SensationSelected(sensationName);
         }
     }
 }

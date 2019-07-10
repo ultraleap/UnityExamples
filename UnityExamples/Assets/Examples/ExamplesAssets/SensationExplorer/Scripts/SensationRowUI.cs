@@ -17,16 +17,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         }
 
-        public void OnHover(PointerEventData eventData)
-        {
-            Debug.Log("POINTERENTER");
-            sensationNameText.color = Color.red; //Or however you do your color
-        }
+        // TODO: activate the SensationRow in code
 
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            sensationNameText.color = Color.white; //Or however you do your color
-        }
 
         // Update is called once per frame
         void Update()

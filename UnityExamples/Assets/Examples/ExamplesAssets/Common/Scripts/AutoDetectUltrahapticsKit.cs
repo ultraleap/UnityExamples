@@ -13,7 +13,7 @@ namespace UltrahapticsCoreAsset.Editor {
                 UHKitLayout.UseDefaultLayout = true;
 
                 var uhDeviceString = GetConnectedUHModelString();
-                Debug.Log("Connected device is:" + uhDeviceString);
+                //Debug.Log("Connected device is:" + uhDeviceString);
                 if (uhDeviceString.StartsWith("USX"))
                 {
                     UHKitLayout.UltrahapticsKitModel = UHKit.Model.STRATOSExplore;

@@ -321,7 +321,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 42, y: 0}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141817270
 MonoBehaviour:
@@ -336,14 +336,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.13257027, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e6cff90d98e51a245862c9856e339183, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -447,7 +447,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 367081105}
-  - {fileID: 350281463}
+  - {fileID: 378028819}
   - {fileID: 1064091290}
   - {fileID: 303023763}
   - {fileID: 839033171}
@@ -668,8 +668,7 @@ CanvasRenderer:
 --- !u!1 &350281462
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1473834971278732, guid: 24f3b65e22c41491fa548743458e564b,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -678,7 +677,7 @@ GameObject:
   - component: {fileID: 350281465}
   - component: {fileID: 350281464}
   m_Layer: 5
-  m_Name: SceneTitle
+  m_Name: SensationName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,28 +686,26 @@ GameObject:
 --- !u!224 &350281463
 RectTransform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 224192329960104744, guid: 24f3b65e22c41491fa548743458e564b,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350281462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 235682888}
-  m_RootOrder: 1
+  m_Father: {fileID: 378028819}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -72}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 1600, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &350281464
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114596991830082150, guid: 24f3b65e22c41491fa548743458e564b,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350281462}
@@ -718,7 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2901961, g: 0.2901961, b: 0.2901961, a: 1}
+  m_Color: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -738,12 +735,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: S E N S A T I O N  E X P L O R E R
+  m_Text: 
 --- !u!222 &350281465
 CanvasRenderer:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 222621592467709630, guid: 24f3b65e22c41491fa548743458e564b,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350281462}
@@ -908,6 +904,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367081104}
+  m_CullTransparentMesh: 0
+--- !u!1 &378028818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378028819}
+  - component: {fileID: 378028821}
+  - component: {fileID: 378028820}
+  m_Layer: 5
+  m_Name: ToolBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &378028819
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378028818}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 350281463}
+  m_Father: {fileID: 235682888}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: 0, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &378028820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378028818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8862745, g: 0.8862745, b: 0.8862745, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &378028821
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378028818}
   m_CullTransparentMesh: 0
 --- !u!1 &379441459
 GameObject:
@@ -1097,7 +1168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.38823533, g: 0.39607847, b: 0.39607847, a: 1}
+  m_Color: {r: 0.8862745, g: 0.8862745, b: 0.8862745, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1411,7 +1482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 1}
+  m_Color: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1498,7 +1569,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: c23a2c75c2bd45f419e28105e8a32720, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -1531,7 +1602,7 @@ GameObject:
   - component: {fileID: 747152030}
   - component: {fileID: 747152029}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Divider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1553,8 +1624,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 220, y: 1}
-  m_SizeDelta: {x: 500, y: 2}
+  m_AnchoredPosition: {x: 200, y: 1}
+  m_SizeDelta: {x: 400, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &747152029
 MonoBehaviour:
@@ -1578,7 +1649,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2001bc1fff7094019a3cecd47b9a8ecc, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1721,7 +1792,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &839033170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 839033171}
   - component: {fileID: 839033173}
+  - component: {fileID: 839033174}
   - component: {fileID: 839033172}
   m_Layer: 5
   m_Name: SensationListPanel
@@ -1773,14 +1845,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f1b683752ac4ae181d071cfd36fef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensationRows: []
   contentRect: {fileID: 1844354470}
   SensationRowPrefab: {fileID: 1668371726145744, guid: 00366f25ffae94c1ab21bc5bab1ee04d,
     type: 3}
-  sensationList: []
-  sensationRows: []
+  sensationLibrary: {fileID: 839033174}
   inputPropertyFactory: {fileID: 1089372709}
   activeSensation: {fileID: 967683298}
+  activeSensationTopText: {fileID: 350281464}
   selectedSensationName: 
+  startupSensationName: CircleSensation
 --- !u!222 &839033173
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1789,6 +1863,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839033170}
   m_CullTransparentMesh: 0
+--- !u!114 &839033174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839033170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96efbf7b1cb50f849b4aad7bc51bb91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackList:
+  - TrackedLine
+  - Point
+  - HandPolyline
 --- !u!1 &967683297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,113 +1904,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967683297}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6528c6c93dba348eba3ed568d3e638c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sensationBlock_: None
-  lastSetBlockToUCA_: ExtrudedCircle
+  lastSetBlockToUCA_: None
   running_: 1
   priority_: 0
   Inputs:
-    inputs_:
-    - Name: objectCentre
-      Value: {x: 0, y: 0.2, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 1
-      Type: Point
-      InputGroup: 
-    - Name: radius
-      Value: {x: 0.03, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 1
-      Type: Scalar
-      InputGroup: 
-    - Name: extrusionDirection
-      Value: {x: 0, y: 1, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: palm_position
-      Value: {x: 0, y: 0.2, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: palm_normal
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: virtualEmitterXInVirtualSpace
-      Value: {x: 1, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualEmitterYInVirtualSpace
-      Value: {x: 0, y: 1, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualEmitterZInVirtualSpace
-      Value: {x: 0, y: 0, z: 1}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualEmitterOriginInVirtualSpace
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualXInEmitterSpace
-      Value: {x: 1, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualYInEmitterSpace
-      Value: {x: 0, y: 1, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualZInEmitterSpace
-      Value: {x: 0, y: 0, z: 1}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualOriginInEmitterSpace
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: t
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 1
-      Type: Scalar
-      InputGroup: 
-    - Name: drawFrequency
-      Value: {x: 70, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 1
-      Type: Scalar
-      InputGroup: 
-    - Name: intensity
-      Value: {x: 1, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 1
-      Type: Scalar
-      InputGroup: 
+    inputs_: []
     supportsTransform_: 0
     TrackingObject: {fileID: 0}
 --- !u!4 &967683299
@@ -2438,7 +2432,7 @@ MonoBehaviour:
   activeSensation: {fileID: 967683298}
   playableDirector: {fileID: 1120411322}
   playToggleButton: {fileID: 790857413}
-  handPresenceEnablesPlayback: 1
+  playButtonText: {fileID: 744376879}
 --- !u!4 &1120411320
 Transform:
   m_ObjectHideFlags: 0
@@ -2624,14 +2618,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fd17880e6dccd425b8ee7c4c53b557f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f48a90d1139646af91733427dbd2ba5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2865,7 +2859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 0.9960785, a: 1}
+  m_Color: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2982,7 +2976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 1}
+  m_Color: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3286,6 +3280,26 @@ PrefabInstance:
       propertyPath: SensationEmitter
       value: 
       objectReference: {fileID: 1005134694}
+    - target: {fileID: 114552846073255098, guid: 7c74609e123fe4258a1f6e85e3400999,
+        type: 3}
+      propertyPath: Color.r
+      value: 0.45882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 114552846073255098, guid: 7c74609e123fe4258a1f6e85e3400999,
+        type: 3}
+      propertyPath: Color.g
+      value: 0.20784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 114552846073255098, guid: 7c74609e123fe4258a1f6e85e3400999,
+        type: 3}
+      propertyPath: Color.b
+      value: 0.87058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 198348283889792120, guid: 7c74609e123fe4258a1f6e85e3400999,
+        type: 3}
+      propertyPath: TrailModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c74609e123fe4258a1f6e85e3400999, type: 3}
 --- !u!1 &1955412179
@@ -3645,9 +3659,9 @@ MonoBehaviour:
   onEnter_:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 790857413}
-        m_MethodName: set_isOn
-        m_Mode: 6
+      - m_Target: {fileID: 1120411319}
+        m_MethodName: HandEntered
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3661,9 +3675,9 @@ MonoBehaviour:
   onLeave_:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 790857413}
-        m_MethodName: set_isOn
-        m_Mode: 6
+      - m_Target: {fileID: 1120411319}
+        m_MethodName: HandExited
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -11,9 +11,10 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public PlayableDirector playableDirector;
 
         public Toggle playToggleButton;
+        public Text playButtonText;
 
-        //public PlayableDirector playableDirector;
-        public bool handPresenceEnablesPlayback = true;
+        public bool handPresenceActivatesPlayback { get; set; } = true;
+        public bool handPresent { get; set; } = false;
 
         // Use this for initialization
         void Start()
@@ -29,29 +30,66 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 TogglePlayback();
             }
         }
-        
+
+        // For simplicity the state of the playable director will be the single
+        // point of truth for the playback engine.
+        // Returns true if Timeline is actively playing back.
+        public bool SensationTimelineIsRunning()
+        {
+            return (playableDirector.state == PlayState.Playing);
+        }
+
+        public void HandEntered()
+        {
+            handPresent = true;
+            if (handPresenceActivatesPlayback)
+            {
+                if (!SensationTimelineIsRunning())
+                {
+                    EnablePlayback(true);
+                }
+            }
+        }
+
+        public void HandExited()
+        {
+            handPresent = false;
+            if (handPresenceActivatesPlayback)
+            {
+                if (SensationTimelineIsRunning())
+                {
+                    EnablePlayback(false);
+                }
+            }
+        }
+
         public void TogglePlayback()
         {
-            playToggleButton.isOn = !playToggleButton.isOn;
+            if (!SensationTimelineIsRunning())
+            {
+                EnablePlayback(true);
+            }
+            else
+            {
+                EnablePlayback(false);
+            }
         }
 
         public void EnablePlayback(bool playing)
         {
-            Debug.Log("Enable Playback: " + playing);
             activeSensation.enabled = playing;
-            //playableDirector.enabled = playing;
             if (playing)
             {
                 playableDirector.Play();
+                playButtonText.text = "STOP";
+                playToggleButton.isOn = true;
             }
             else
             {
                 playableDirector.Stop();
+                playButtonText.text = "PLAY";
+                playToggleButton.isOn = false;
             }
-
-            
         }
     }
-
-
 }
