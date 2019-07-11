@@ -224,3 +224,35 @@ def binaryFunction(inputs):
 
 defineBlockOutputBehaviour(binaryBlock.out, binaryFunction)
 setMetaData(binaryBlock.out, "Sensation-Producing", False)
+
+
+# === IntegerClock Block ===
+# IntegerClock which increments an integer min to max values, at step rate given by period
+# The IntegerClock will loop back to the starting point after reaching the max number
+integerClockBlock = defineBlock("IntegerClock")
+defineInputs(integerClockBlock, "t", "min", "max", "period")
+defineBlockInputDefaultValue(integerClockBlock.min, (0,0,0))
+defineBlockInputDefaultValue(integerClockBlock.max, (3,0,0))
+defineBlockInputDefaultValue(integerClockBlock.period, (1,0,0))
+
+def intClock(inputs):
+    t = inputs[0][0]
+    
+    start = int(inputs[1][0])
+    end = int(inputs[2][0])
+    period = inputs[3][0]
+
+    if period <= 0:
+        return (0,0,0)
+
+    sequence = list(range(start, end+1))
+
+    # Get the index of the closest step
+    ix = int(t/period)
+    index = ix % len(sequence)
+    
+    return (sequence[index], 0 , 0)
+
+defineOutputs(integerClockBlock, "out")
+setMetaData(integerClockBlock.out, "Sensation-Producing", False)
+defineBlockOutputBehaviour(integerClockBlock.out, intClock)

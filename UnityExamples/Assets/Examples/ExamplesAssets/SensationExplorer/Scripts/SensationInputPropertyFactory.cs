@@ -8,20 +8,12 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public RectTransform contentRect;
         public List<GameObject> inputRows = null;
-
-        // This is required until we have metadata to say that a Block is defined in Virtual Space
-        private List<string> sensationsDefinedInVirtualSpace = new List<string>();
-
         private IAutoMapper autoMapper_;
 
         // Use this for initialization
         void Start()
         {
             autoMapper_ = GameObject.FindObjectOfType<IAutoMapper>();
-
-            sensationsDefinedInVirtualSpace.Add("FingerPatch");
-            sensationsDefinedInVirtualSpace.Add("HandScan");
-            sensationsDefinedInVirtualSpace.Add("PalmTrackedPulsingCircle");
             ClearInputGameObjects();
         }
 

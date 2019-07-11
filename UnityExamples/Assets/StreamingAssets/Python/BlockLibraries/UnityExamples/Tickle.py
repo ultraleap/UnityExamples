@@ -1,7 +1,8 @@
-# A Sensation which animates (scans) a Lissajous along the fingers
+# Tickle - A Sensation which animates (scans) a Lissajous along the fingers
 from pysensationcore import *
 import sensation_helpers as sh
 import Mux
+import Generators
 
 scanBlock = defineBlock("PointScan")
 defineInputs(scanBlock,
@@ -44,36 +45,6 @@ scan = createInstance("PointScan", "scan")
 # Use a Mux block to change the endpoint of the scan
 mux4Block = createInstance("Mux4", "mux4")
 
-# IntegerClock which increments an integer min to max values, at step rate given by period
-# The IntegerClock will loop back to the starting point after reaching the max number
-sequencerBlock = defineBlock("IntegerClock")
-defineInputs(sequencerBlock, "t", "min", "max", "period")
-defineBlockInputDefaultValue(sequencerBlock.min, (0,0,0))
-defineBlockInputDefaultValue(sequencerBlock.max, (3,0,0))
-defineBlockInputDefaultValue(sequencerBlock.period, (1,0,0))
-
-def intClock(inputs):
-    t = inputs[0][0]
-    
-    start = int(inputs[1][0])
-    end = int(inputs[2][0])
-    period = inputs[3][0]
-
-    if period <= 0:
-        return (0,0,0)
-
-    sequence = list(range(start, end+1))
-
-    # Get the index of the closest step
-    ix = int(t/period)
-    index = ix % len(sequence)
-    
-    return (sequence[index], 0 , 0)
-
-defineOutputs(sequencerBlock, "out")
-setMetaData(sequencerBlock.out, "Sensation-Producing", False)
-defineBlockOutputBehaviour(sequencerBlock.out, intClock)
-
 sequencer = createInstance("IntegerClock", "sequencer")
 connect(Constant((0,0,0)), sequencer.min)
 connect(Constant((3,0,0)), sequencer.max)
@@ -82,7 +53,7 @@ connect(Constant((3,0,0)), sequencer.max)
 connect(sequencer.out, mux4Block.selector)
 connect(mux4Block.out, scan.animationPathEnd)
 
-fingerScan = sh.createSensationFromPath("FingerScan",
+fingerScan = sh.createSensationFromPath("Tickle",
                                       {
                                           ("t", scan.t) : (0, 0, 0),
                                           ("t", sequencer.t) : (0, 0, 0),

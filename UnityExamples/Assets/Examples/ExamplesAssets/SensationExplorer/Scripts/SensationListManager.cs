@@ -24,15 +24,14 @@ namespace UltrahapticsCoreAsset.UnityExamples
         // Use this for initialization
         void Start()
         {
-            if (sensationLibrary == null)
+            if (sensationLibrary.sensationList.Count == 0)
             {
-                sensationLibrary = FindObjectOfType<SensationLibrary>();
+                sensationLibrary.BuildBlockLibrary();
             }
             RefreshSensationList();
 
-            // On Start, select the startup Sensation
-            
-            ActivateSensationByName(startupSensationName);
+            // TODO On Start, select the startup Sensation
+            //ActivateSensationByName(startupSensationName);
         }
 
         // Used to remove all of the Child Game Objects in Content GameObject.
@@ -47,12 +46,13 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public void RefreshSensationList()
         {
             sensationRows.Clear();
-            PopulateSensationRows();
+            BuildSensationRows();
         }
 
 
-        void PopulateSensationRows()
+        void BuildSensationRows()
         {
+
             GameObject row;
             foreach (string sensationName in sensationLibrary.sensationList)
             {

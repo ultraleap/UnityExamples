@@ -68,7 +68,7 @@ topLevelInputs[("t", translateAlongPath.t)] = (0, 0, 0)
 topLevelInputs[("t", comparator.a)] = (0, 0, 0)
 topLevelInputs[("duration", translateAlongPath.duration)] = (0.7,0,0)
 topLevelInputs[("duration", comparator.b)] = (0.7,0,0)
-topLevelInputs[("scanWidth", objectPath.sizeX)] = (0.01, 0, 0)
+topLevelInputs[("width", objectPath.sizeX)] = (0.01, 0, 0)
 topLevelInputs[("palm_direction", crossProductInst.lhs)] = (0, 0, 0)
 topLevelInputs[("palm_normal", crossProductInst.rhs)] = (0, 0, 0)
 topLevelInputs[("palm_direction", composeTransform.y)] = (0, 0, 0)
@@ -83,9 +83,13 @@ fingerScan = sh.createSensationFromPath("IndexFingerScan",
                                   definedInVirtualSpace = True
                                   )
 
-# Hide the non-vital inputs...
-visibleInputs = ("duration", "scanWidth")
+# Hide the non-vital inputs, set others as scalars...
+setMetaData(fingerScan.duration, "Type", "Scalar")
+setMetaData(fingerScan.width, "Type", "Scalar")
+
+visibleInputs = ("duration", "width")
 for topLevelInput in topLevelInputs.keys():
     inputName = topLevelInput[0]
     if inputName not in visibleInputs:
         setMetaData(getattr(fingerScan, inputName), "Input-Visibility", False)
+        

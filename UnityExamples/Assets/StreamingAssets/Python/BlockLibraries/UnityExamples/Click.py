@@ -46,21 +46,26 @@ defineOutputs(clickIntensityBlock, "out")
 setMetaData(clickIntensityBlock.out, "Sensation-Producing", False)
 defineBlockOutputBehaviour(clickIntensityBlock.out, clickIntensity)
 
-# A Circle Path Sensation which has its intensity modultaed by a clickIntensity Signal
-circlePathInstance = createInstance("CirclePath", "circlePath")
+# An Object Path Sensation which has its intensity modultaed by a clickIntensity Signal
+objectPathInstance = createInstance("LissajousPath", "circlePath")
 clickIntensityInstance = createInstance("ClickIntensity", "clickIntensity")
 
-clickCircle = sh.createSensationFromPath("Click",
+click = sh.createSensationFromPath("Click",
                                         {
                                             ("t", clickIntensityInstance.t) : (0,0,0),
                                             ("sampleRate", clickIntensityInstance.sampleRate) : (fs,0,0),
-                                            ("radius", circlePathInstance.radius) : (0.02, 0.0, 0.0)
+                                            ("size", objectPathInstance.sizeX) : (0.02, 0.0, 0.0),
+                                            ("size", objectPathInstance.sizeY) : (0.02, 0.0, 0.0),
+                                            ("paramA", objectPathInstance.paramA) : (3, 0.0, 0.0),
+                                            ("paramB", objectPathInstance.paramB) : (2, 0.0, 0.0)
                                         },
-                                        output = circlePathInstance.out,
+                                        output = objectPathInstance.out,
                                         renderMode = sh.RenderMode.Loop,
                                         intensity = clickIntensityInstance.out,
                                         drawFrequency = 80)
 
-setMetaData(clickCircle.radius, "Type", "Scalar")
-setMetaData(clickCircle.sampleRate, "Type", "Scalar")
-setMetaData(clickCircle, "Allow-Transform", True)
+setMetaData(click.size, "Type", "Scalar")
+setMetaData(click.sampleRate, "Type", "Scalar")
+setMetaData(click, "Allow-Transform", True)
+setMetaData(click.paramA, "Input-Visibility", False)
+setMetaData(click.paramB, "Input-Visibility", False)

@@ -10,34 +10,27 @@ namespace UltrahapticsCoreAsset.UnityExamples
     {
 
         // The full list that SensationCore knows about
-        [NonSerialized]
         public List<string> sensationList;
 
         // List of Sensation Block names to ignore
         public List<string> blackList;
 
-        public BlockLibrary blockLibrary = new BlockLibrary();
+        private BlockLibrary blockLibrary;
 
-        void Start()
-        {
-            BuildBlockLibrary();
-        }
-
-        void BuildBlockLibrary()
+        public void BuildBlockLibrary()
         {
             if (blockLibrary == null)
             {
                 blockLibrary = new BlockLibrary();
             }
-            sensationList = blockLibrary.SortedBlockList();
+            List<string> sortedBlockList = blockLibrary.SortedBlockList();
+            sensationList = sortedBlockList.Except(blackList).ToList();
         }
     }
 
     public class BlockLibrary
     {
-
         private List<string> _sensationsList;
-
 
         [OnSensationCoreInitialize]
         public static void AddSearchPath()
