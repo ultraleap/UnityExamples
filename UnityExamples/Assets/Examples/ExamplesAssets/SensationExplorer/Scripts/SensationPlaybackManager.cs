@@ -9,9 +9,14 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public SensationSource activeSensation;
         public PlayableDirector playableDirector;
+        public SensationListManager sensationListManager;
 
         public Toggle playToggleButton;
-        public Text playButtonText;
+        public Image playbackButtonImage;
+        public Sprite playSprite;
+        public Sprite stopSprite;
+
+        public string startupSensationName = "CircleSensation";
 
         public bool handPresenceActivatesPlayback { get; set; } = true;
         public bool handPresent { get; set; } = false;
@@ -20,6 +25,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
         void Start()
         {
             activeSensation.inputsCache.Clear();
+            sensationListManager.ActivateSensationByName(startupSensationName);
         }
 
         // Update is called once per frame
@@ -81,14 +87,14 @@ namespace UltrahapticsCoreAsset.UnityExamples
             if (playing)
             {
                 playableDirector.Play();
-                playButtonText.text = "STOP";
-                playToggleButton.isOn = true;
+                playbackButtonImage.sprite = stopSprite;
+                //playToggleButton.isOn = true;
             }
             else
             {
                 playableDirector.Stop();
-                playButtonText.text = "PLAY";
-                playToggleButton.isOn = false;
+                playbackButtonImage.sprite = playSprite;
+                //playToggleButton.isOn = false;
             }
         }
     }

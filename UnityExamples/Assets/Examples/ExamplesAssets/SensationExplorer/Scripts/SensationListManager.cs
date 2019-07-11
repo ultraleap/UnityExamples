@@ -19,7 +19,6 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public Text activeSensationTopText;
 
         public string selectedSensationName;
-        public string startupSensationName = "CircleSensation";
 
         // Use this for initialization
         void Start()
