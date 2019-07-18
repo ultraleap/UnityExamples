@@ -2,13 +2,6 @@
 from pysensationcore import *
 import sensation_helpers as sh
 
-scanBlock = defineBlock("PolylineScan")
-defineInputs(scanBlock,
-             "t",
-             "duration"
-             )
-defineBlockInputDefaultValue(scanBlock.duration, (2.5, 0, 0))
-
 # We will use the 20 joint positions of the fingers to animate a Circle along a PolylinePath
 fingers = ["thumb", "indexFinger", "middleFinger", "ringFinger", "pinkyFinger"]
 bones = ["metacarpal", "proximal", "intermediate", "distal", "intermediate","proximal","metacarpal"]
@@ -23,7 +16,6 @@ for finger in fingers:
     for bone in bones:
         jointInputName = "%s_%s_position" % (finger, bone)
         jointKeyFrames+=[jointInputName]
-        defineInputs(scanBlock, jointInputName)
 
 # The number of Key frames
 numPoints = len(jointKeyFrames)
@@ -33,8 +25,6 @@ points = sh.createList(numPoints)
 connect(points["output"], animPath.points)
 
 translateAlongPath = createInstance("TranslateAlongPath", "translateAlongPath")
-connect(scanBlock.t, translateAlongPath.t)
-connect(scanBlock.duration, translateAlongPath.duration)
 connect(Constant((1,0,0)), translateAlongPath.direction)
 connect(animPath.out, translateAlongPath.animationPath)
 
@@ -56,10 +46,6 @@ transformPath = createInstance("TransformPath", "rotatePath")
 connect(circlePath.out, transformPath.path)
 connect(composeTransform.out, transformPath.transform)
 connect(transformPath.out, translateAlongPath.objectPath)
-
-defineOutputs(scanBlock, "out")
-setMetaData(scanBlock.out, "Sensation-Producing", False)
-connect(translateAlongPath.out, scanBlock.out)
 
 topLevelInputs = {}
 for n in range(0,numPoints):
