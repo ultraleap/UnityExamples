@@ -1,6 +1,7 @@
 # A Sensation which creates a Polyline of 35 points of the finger joints, along which a Circle Path is animated.
 from pysensationcore import *
 import sensation_helpers as sh
+import HandOperations
 
 # We will use the 20 joint positions of the fingers to animate a Circle along a PolylinePath
 fingers = ["thumb", "indexFinger", "middleFinger", "ringFinger", "pinkyFinger"]
@@ -33,19 +34,11 @@ connect(animPath.out, translateAlongPath.animationPath)
 # to match the orientation of the Palm
 circlePath = createInstance("CirclePath", "objectPath")
 
-crossProductInst = createInstance("CrossProduct", "crossProduct")
+orientToPalmInstance = createInstance("OrientPathToPalm", "orientToPalm")
 
-# Compose a Transform based on the palm orientation to orient the objectPath
-composeTransform = createInstance("ComposeTransform", "ComposeObjInVtlSpaceTform")
-connect(crossProductInst.out, composeTransform.x)
-connect(Constant((0,0,0)), composeTransform.o)
-
-transformPath = createInstance("TransformPath", "rotatePath")
-
-# Object Path -> TransformPath -> TranslateAlongPath
-connect(circlePath.out, transformPath.path)
-connect(composeTransform.out, transformPath.transform)
-connect(transformPath.out, translateAlongPath.objectPath)
+# Object Path -> OrientPathToPalm -> TranslateAlongPath
+connect(circlePath.out, orientToPalmInstance.path)
+connect(orientToPalmInstance.out, translateAlongPath.objectPath)
 
 topLevelInputs = {}
 for n in range(0,numPoints):
@@ -54,10 +47,8 @@ for n in range(0,numPoints):
 topLevelInputs[("t", translateAlongPath.t)] = (0, 0, 0)
 topLevelInputs[("duration", translateAlongPath.duration)] = (2.5,0,0)
 topLevelInputs[("dotSize", circlePath.radius)] = (0.008, 0, 0)
-topLevelInputs[("palm_direction", crossProductInst.lhs)] = (0, 0, 0)
-topLevelInputs[("palm_normal", crossProductInst.rhs)] = (0, 0, 0)
-topLevelInputs[("palm_direction", composeTransform.y)] = (0, 0, 0)
-topLevelInputs[("palm_normal", composeTransform.z)] = (0, 0, 0)
+topLevelInputs[("palm_direction", orientToPalmInstance.palm_direction)] = (0, 0, 0)
+topLevelInputs[("palm_normal", orientToPalmInstance.palm_normal)] = (0, 0, 0)
 
 fingerScan = sh.createSensationFromPath("PolylineFingerScan",
                                   topLevelInputs,
