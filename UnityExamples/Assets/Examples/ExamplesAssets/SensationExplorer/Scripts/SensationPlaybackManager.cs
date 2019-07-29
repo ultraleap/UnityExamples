@@ -16,9 +16,11 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public Sprite playSprite;
         public Sprite stopSprite;
 
+        public Transform sensationTransform;
+
         public string startupSensationName = "CircleSensation";
 
-        public bool handPresenceActivatesPlayback { get; set; } = true;
+        public bool handPresenceActivatesPlayback { get; set; } = false;
         public bool handPresent { get; set; } = false;
 
         // Use this for initialization
@@ -66,6 +68,24 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 {
                     EnablePlayback(false);
                 }
+            }
+        }
+
+        public void SetFixation(int fixationInt)
+        {
+            Debug.Log("Enum int: " + (FixationDropdownUI.Fixation)fixationInt);
+
+            FixationDropdownUI.Fixation fixationMode = (FixationDropdownUI.Fixation)fixationInt;
+
+            if (fixationMode == FixationDropdownUI.Fixation.HAND)
+            {
+                activeSensation.Inputs.TrackingObject = null;
+                sensationTransform.gameObject.SetActive(false);
+            }
+            else if (fixationMode == FixationDropdownUI.Fixation.FIXED)
+            {
+                activeSensation.Inputs.TrackingObject = sensationTransform;
+                sensationTransform.gameObject.SetActive(true);
             }
         }
 

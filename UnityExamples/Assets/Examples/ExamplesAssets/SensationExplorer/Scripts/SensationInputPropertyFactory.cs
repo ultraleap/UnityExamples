@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace UltrahapticsCoreAsset.UnityExamples
@@ -7,6 +8,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
     {
 
         public RectTransform contentRect;
+        public FixationDropdownUI fixationDropdownUI;
         public List<GameObject> inputRows = null;
         private IAutoMapper autoMapper_;
 
@@ -30,6 +32,19 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public void SetSensationInputsFromSensation(SensationSource sensation)
         {
             ClearInputGameObjects();
+
+            // Determine whether Sensation supports Freeform positioning (e.g. Allow-Transform)
+            bool supportsTransform;
+            try
+            {
+                supportsTransform = sensation.GetMetaData<bool>("Allow-Transform");
+            }
+            catch (ArgumentException)
+            {
+                supportsTransform = false;
+            }
+            fixationDropdownUI.gameObject.SetActive(supportsTransform);
+
             foreach (SensationBlockInput input in sensation.Inputs)
             {
                 string inputName = input.Name;

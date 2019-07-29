@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.IO;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,10 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public List<string> sensationList;
 
         // List of Sensation Block names to ignore
-        public List<string> blackList;
+        [SerializeField] public List<string> whiteList;
+
+        // List of Sensation Block names to ignore
+        [SerializeField] public List<string> blackList;
 
         private BlockLibrary blockLibrary;
 
@@ -23,8 +27,30 @@ namespace UltrahapticsCoreAsset.UnityExamples
             {
                 blockLibrary = new BlockLibrary();
             }
+
+            // Build the full sorted list
             List<string> sortedBlockList = blockLibrary.SortedBlockList();
-            sensationList = sortedBlockList.Except(blackList).ToList();
+
+            // if the White list is empty, assume all is required, except for blacklisted.
+            if (whiteList.Count == 0)
+            {
+                sensationList = sortedBlockList.Except(blackList).ToList();
+            }
+            // Otherwise, only include WhiteListed items.
+            else
+            {
+                sensationList = whiteList.ToList();
+                // A final filter just in case White list contains non-available Sensations
+                foreach (string sensationName in sensationList)
+                {
+                    if (!sortedBlockList.Contains(sensationName))
+                    {
+                        Debug.LogWarning("Unable to locate Sensation named: " + sensationName);
+                        whiteList.Remove(sensationName);
+                    }
+                }
+                sensationList = whiteList;
+            }
         }
     }
 
@@ -47,6 +73,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
             {
                 throw new Exception("No SensationCore found");
             }
+
             _sensationsList = _sensationsList ?? sc.GetSensationProducingBlockNames();
             var sortedSensations = _sensationsList.OrderBy(s => s);
             return sortedSensations.ToList();
