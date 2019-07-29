@@ -4,6 +4,7 @@ from pysensationcore import *
 import sensation_helpers as sh
 import RandomInt
 from Mux import createMuxBlockInstance
+import HandOperations
 
 # Define our Circle Path to use for moving around the hand
 circlePathInstance = createInstance("CirclePath", "circleInstance")
@@ -35,7 +36,12 @@ connect(muxBlockInstance.out, composeTransformInstance.o)
 
 transformPathInstance = createInstance("TransformPath", "transformPath")
 connect(composeTransformInstance.out, transformPathInstance.transform)
-connect(circlePathInstance.out, transformPathInstance.path)
+
+# Additional Transfer to ensure Circle is oriented to palm
+orientToPalmInstance = createInstance("OrientPathToPalm", "orientToPalm")
+
+connect(circlePathInstance.out, orientToPalmInstance.path)
+connect(orientToPalmInstance.out, transformPathInstance.path)
 
 # Create hand-tracked Ripple Sensation from output of TransformPath
 rippleSensation = sh.createSensationFromPath("FingerRipple",
@@ -43,12 +49,13 @@ rippleSensation = sh.createSensationFromPath("FingerRipple",
                                                     ("t", randomBlockInstance.t) : (0,0,0),
                                                     ("period", randomBlockInstance.period) : (0.05, 0.0, 0.0),
                                                     ("radius", circlePathInstance.radius) : (0.008, 0.0, 0.0),
+                                                    ("palm_direction", orientToPalmInstance.palm_direction) : (0, 0, 0),
+                                                    ("palm_normal", orientToPalmInstance.palm_normal) : (0, 0, 0),
                                                 },
                                                 output = transformPathInstance.out,
                                                 drawFrequency = 70,
                                                 definedInVirtualSpace = True
                                                 )
-
 
 setMetaData(rippleSensation.period, "Type", "Scalar")
 setMetaData(rippleSensation.radius, "Type", "Scalar")

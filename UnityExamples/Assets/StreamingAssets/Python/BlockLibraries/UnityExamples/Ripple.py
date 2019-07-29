@@ -56,3 +56,5 @@ setMetaData(rippleSensation.boxYmin, "Type", "Scalar")
 setMetaData(rippleSensation.boxYmax, "Type", "Scalar")
 setMetaData(rippleSensation.period, "Type", "Scalar")
 setMetaData(rippleSensation.radius, "Type", "Scalar")
+
+setMetaData(rippleSensation, "Allow-Transform", True)

@@ -35,7 +35,8 @@ defineBlockOutputBehaviour(handInfo.option, handInfoBehaviour)
 # Orients a 2D Path (designed in X-Y of Sensation Space) to be in the same plane as the palm
 orientToPalmBlock = defineBlock("OrientPathToPalm")
 
-defineInputs(orientToPalmBlock, "path", "palm_direction","palm_normal")
+defineInputs(orientToPalmBlock, "path", "palm_direction","palm_normal", "offset_position")
+defineBlockInputDefaultValue(orientToPalmBlock.offset_position, (0, 0, 0))
 defineOutputs(orientToPalmBlock, "out")
 setMetaData(orientToPalmBlock.out, "Sensation-Producing", False)
 
@@ -44,7 +45,7 @@ crossProductInst = createInstance("CrossProduct", "crossProduct")
 # Compose a Transform based on the palm orientation to orient the path input
 composeTransform = createInstance("ComposeTransform", "ComposeObjInVtlSpaceTform")
 connect(crossProductInst.out, composeTransform.x)
-connect(Constant((0,0,0)), composeTransform.o)
+connect(orientToPalmBlock.offset_position, composeTransform.o)
 
 transformPath = createInstance("TransformPath", "rotatePath")
 
