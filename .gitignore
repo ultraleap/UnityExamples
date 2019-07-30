@@ -12,3 +12,6 @@ UnityExamples/*.sln
 UnityExamples/Temp/*
 UnityExamples/Packages/*
 UnityExamples/Logs/*
+*.pyc
+*.pyc.meta
+*__pycache__.meta

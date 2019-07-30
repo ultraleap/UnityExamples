@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 #if UNITY_STANDALONE_WIN
-using Leap.Unity;
+using Controller = Leap.Controller;
 #endif
 
 #if UNITY_STANDALONE_OSX
