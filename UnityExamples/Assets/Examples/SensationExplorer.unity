@@ -3453,6 +3453,7 @@ MonoBehaviour:
   playSprite: {fileID: 21300000, guid: 119bf8bc7671440eeaa6be1d5dd44de0, type: 3}
   stopSprite: {fileID: 21300000, guid: 8083df27a48024f3bb93cbc9bb966111, type: 3}
   sensationTransform: {fileID: 720418008}
+  resetButton: {fileID: 494772512}
   startupSensationName: 
 --- !u!4 &1120411320
 Transform:

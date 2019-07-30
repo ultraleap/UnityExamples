@@ -50,7 +50,6 @@ namespace UltrahapticsCoreAsset.UnityExamples
             BuildSensationRows();
         }
 
-
         void BuildSensationRows()
         {
 
@@ -75,6 +74,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
             // Now pass the Sensation Source to the Sensation Input Property Factory
             inputPropertyFactory.SetSensationInputsFromSensation(activeSensation);
+
+            playbackManager.ResetSensationToDefault();
 
             // If a Sensation is selected, set the playback state to true
             playbackManager.EnablePlayback(true);

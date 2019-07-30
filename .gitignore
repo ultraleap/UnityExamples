@@ -15,3 +15,4 @@ UnityExamples/Logs/*
 *.pyc
 *.pyc.meta
 *__pycache__.meta
+UnityExamples/logFile.txt

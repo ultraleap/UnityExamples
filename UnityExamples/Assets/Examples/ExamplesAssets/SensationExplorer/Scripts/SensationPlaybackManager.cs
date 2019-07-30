@@ -18,6 +18,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public Transform sensationTransform;
 
+        public ResetSensationButton resetButton;
+
         public string startupSensationName = "CircleSensation";
 
         public bool handPresenceActivatesPlayback { get; set; } = false;
@@ -48,6 +50,14 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public bool SensationTimelineIsRunning()
         {
             return (playableDirector.state == PlayState.Playing);
+        }
+
+
+        // Reset a Sensation to defaults
+        public void ResetSensationToDefault()
+        {
+            resetButton.ResetSensationInputs();
+            resetButton.ResetSensationTransform();
         }
 
         public void HandEntered()
