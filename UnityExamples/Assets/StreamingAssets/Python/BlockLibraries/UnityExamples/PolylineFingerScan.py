@@ -3,7 +3,7 @@ from pysensationcore import *
 import sensation_helpers as sh
 import HandOperations
 
-# We will use the 20 joint positions of the fingers to animate a Circle along a PolylinePath
+# We will use the joint positions of the fingers to animate a Circle along a PolylinePath
 fingers = ["thumb", "indexFinger", "middleFinger", "ringFinger", "pinkyFinger"]
 bones = ["metacarpal", "proximal", "intermediate", "distal", "intermediate","proximal","metacarpal"]
 
@@ -46,14 +46,14 @@ for n in range(0,numPoints):
 
 topLevelInputs[("t", translateAlongPath.t)] = (0, 0, 0)
 topLevelInputs[("duration", translateAlongPath.duration)] = (2.5,0,0)
-topLevelInputs[("dotSize", circlePath.radius)] = (0.008, 0, 0)
+topLevelInputs[("dotSize", circlePath.radius)] = (0.01, 0, 0)
 topLevelInputs[("palm_direction", orientToPalmInstance.palm_direction)] = (0, 0, 0)
 topLevelInputs[("palm_normal", orientToPalmInstance.palm_normal)] = (0, 0, 0)
 
 fingerScan = sh.createSensationFromPath("PolylineFingerScan",
                                   topLevelInputs,
                                   output = translateAlongPath.out,
-                                  drawFrequency = 70,
+                                  drawFrequency = 120,
                                   renderMode=sh.RenderMode.Loop,
                                   definedInVirtualSpace = True
                                   )
@@ -64,3 +64,6 @@ for topLevelInput in topLevelInputs.keys():
     inputName = topLevelInput[0]
     if inputName not in visibleInputs:
         setMetaData(getattr(fingerScan, inputName), "Input-Visibility", False)
+
+setMetaData(fingerScan.duration, "Type", "Scalar")
+setMetaData(fingerScan.dotSize, "Type", "Scalar")

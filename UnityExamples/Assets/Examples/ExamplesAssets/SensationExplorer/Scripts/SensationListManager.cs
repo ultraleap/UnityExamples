@@ -16,6 +16,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public SensationInputPropertyFactory inputPropertyFactory;
         public SensationSource activeSensation;
 
+        public SensationPlaybackManager playbackManager;
+
         public Text activeSensationTopText;
 
         public string selectedSensationName;
@@ -73,6 +75,10 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
             // Now pass the Sensation Source to the Sensation Input Property Factory
             inputPropertyFactory.SetSensationInputsFromSensation(activeSensation);
+
+            // If a Sensation is selected, set the playback state to true
+            playbackManager.EnablePlayback(true);
+
         }
 
         // TODO: This method needs to activate the row item with a given 

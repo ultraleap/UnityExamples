@@ -6,8 +6,9 @@ using UnityEngine;
 namespace UltrahapticsCoreAsset.UnityExamples {
     public class ResetSensationButton : MonoBehaviour
     {
-        public SensationSource sensationSource;
-        public SensationInputPropertyFactory inputFactory;
+        [SerializeField] private SensationSource sensationSource;
+        [SerializeField] private SensationInputPropertyFactory inputFactory;
+        [SerializeField] private GameObject SensationTransform;
 
         // Start is called before the first frame update
         void Start()
@@ -15,7 +16,7 @@ namespace UltrahapticsCoreAsset.UnityExamples {
 
         }
 
-        public void ResetSensation()
+        public void ResetSensationInputs()
         {
             sensationSource.inputsCache.Clear();
             sensationSource.RecreateBlockWithDefaultInputs();
@@ -26,6 +27,20 @@ namespace UltrahapticsCoreAsset.UnityExamples {
             sensationSource.enabled = false;
             sensationSource.enabled = true;
         }
+
+        // This will re-position the SensationTransform Object to the 0,0.2,0 default
+        public void ResetSensationTransform()
+        {
+            sensationSource.inputsCache.Clear();
+
+            SensationTransform.transform.localPosition = new Vector3(0, 0.2f, 0);
+            SensationTransform.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            SensationTransform.transform.localScale = new Vector3(1, 1, 1);
+
+            sensationSource.enabled = false;
+            sensationSource.enabled = true;
+        }
+
 
         // Update is called once per frame
         void Update()

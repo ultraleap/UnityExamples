@@ -124,8 +124,6 @@ namespace UltrahapticsCoreAsset.UnityExamples
                     vector3Control.yValue.text = input.Value.y.ToString();
                     vector3Control.zValue.text = input.Value.z.ToString();
                 }
-
-                sensation.enabled = true;
             }
         }
     }

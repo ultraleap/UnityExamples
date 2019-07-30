@@ -11,8 +11,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public PlayableDirector playableDirector;
         public SensationListManager sensationListManager;
 
-        public Toggle playToggleButton;
         public Image playbackButtonImage;
+
         public Sprite playSprite;
         public Sprite stopSprite;
 
@@ -27,7 +27,10 @@ namespace UltrahapticsCoreAsset.UnityExamples
         void Start()
         {
             activeSensation.inputsCache.Clear();
-            sensationListManager.ActivateSensationByName(startupSensationName);
+            //sensationListManager.ActivateSensationByName(startupSensationName);
+
+            // Start Playback in Stopped State
+            EnablePlayback(false);
         }
 
         // Update is called once per frame
@@ -73,8 +76,6 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public void SetFixation(int fixationInt)
         {
-            Debug.Log("Enum int: " + (FixationDropdownUI.Fixation)fixationInt);
-
             FixationDropdownUI.Fixation fixationMode = (FixationDropdownUI.Fixation)fixationInt;
 
             if (fixationMode == FixationDropdownUI.Fixation.HAND)
@@ -104,18 +105,17 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public void EnablePlayback(bool playing)
         {
             activeSensation.enabled = playing;
+            playbackButtonImage.sprite = playing ? stopSprite : playSprite;
+
             if (playing)
             {
                 playableDirector.Play();
-                playbackButtonImage.sprite = stopSprite;
-                //playToggleButton.isOn = true;
             }
             else
             {
                 playableDirector.Stop();
-                playbackButtonImage.sprite = playSprite;
-                //playToggleButton.isOn = false;
             }
+            
         }
     }
 }

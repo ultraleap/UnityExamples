@@ -5,6 +5,8 @@ from pysensationcore import *
 # === Mux-N ===
 def muxSelector(inputs):
     selector = int(inputs[0][0])
+    if selector > len(inputs)-1:
+      return (0,0,0)
     return inputs[selector + 1]
 
 def createMuxN(n):
