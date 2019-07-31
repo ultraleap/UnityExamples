@@ -5,6 +5,9 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;
 
+    //  The Viewer Pane
+    public RectTransform viewerPaneRect;
+
     // Camera Transform Presets
     public Transform CameraDefault;
     public Transform CameraTop;
@@ -66,6 +69,13 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
+        // If the Mouse Focus is in Viewer Section-only, handle Camera Interaction
+        Vector2 mousePosition = Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2);
+        if (!viewerPaneRect.rect.Contains(mousePosition))
+        {
+            return;
+        };
+
         // only update rotation if the right-mouse button is held down
         if (Input.GetMouseButtonDown(1))
         {
