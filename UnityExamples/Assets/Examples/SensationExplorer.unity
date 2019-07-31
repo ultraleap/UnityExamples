@@ -837,7 +837,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CHOOSE A SENSATION
+  m_Text: P I C K  A  S E N S A T I O N
 --- !u!222 &350281465
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2992,10 +2992,10 @@ MonoBehaviour:
   pivot: 0
   centerType: 0
   scaleType: 0
-  SetMoveType: 119
-  SetRotateType: 101
-  SetScaleType: 114
-  SetAllTransformType: 121
+  SetMoveType: 113
+  SetRotateType: 119
+  SetScaleType: 101
+  SetAllTransformType: 114
   SetSpaceToggle: 120
   SetPivotModeToggle: 122
   SetCenterTypeToggle: 99
@@ -3005,15 +3005,15 @@ MonoBehaviour:
   ActionKey: 304
   UndoAction: 122
   RedoAction: 121
-  xColor: {r: 1, g: 0, b: 0, a: 0.8}
-  yColor: {r: 0, g: 1, b: 0, a: 0.8}
-  zColor: {r: 0, g: 0, b: 1, a: 0.8}
-  allColor: {r: 0.7, g: 0.7, b: 0.7, a: 0.8}
-  selectedColor: {r: 1, g: 1, b: 0, a: 0.8}
-  hoverColor: {r: 1, g: 0.75, b: 0, a: 0.8}
-  planesOpacity: 0.1
-  handleLength: 0.25
-  handleWidth: 0.001
+  xColor: {r: 1, g: 0.19761258, b: 0, a: 0.7490196}
+  yColor: {r: 0, g: 0.8117647, b: 0.45882353, a: 0.8}
+  zColor: {r: 0, g: 0.29448357, b: 0.8117647, a: 0.8}
+  allColor: {r: 0.8862745, g: 0.8862745, b: 0.8862745, a: 0.8}
+  selectedColor: {r: 0.92156863, g: 0.7411765, b: 0.043137256, a: 0.8}
+  hoverColor: {r: 0.8627451, g: 0.49019608, b: 0.02745098, a: 0.8}
+  planesOpacity: 0.01
+  handleLength: 0.1
+  handleWidth: 0.00075
   planeSize: 0.035
   triangleSize: 0.015
   boxSize: 0.015
@@ -3029,7 +3029,7 @@ MonoBehaviour:
   useFirstSelectedAsMain: 1
   circularRotationMethod: 0
   forceUpdatePivotPointOnChange: 1
-  maxUndoStored: 100
+  maxUndoStored: 50
   manuallyHandleGizmo: 0
   selectionMask:
     serializedVersion: 2
@@ -4636,6 +4636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306fcbde8b496cd4bb475c7113c2c45e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  focalPointModel: {fileID: 0}
+  kitModel: {fileID: 0}
+  trackerModel: {fileID: 0}
 --- !u!1 &1795046836
 GameObject:
   m_ObjectHideFlags: 0
@@ -5466,7 +5469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
+  m_Color: {r: 0, g: 0.8117647, b: 0.45882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
