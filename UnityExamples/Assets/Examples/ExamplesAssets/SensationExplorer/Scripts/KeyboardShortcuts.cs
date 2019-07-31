@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class KeyboardShortcuts : MonoBehaviour
 {
-    public GameObject focalPointModel;
+    public GameObject controlPointModel;
     public GameObject kitModel;
     public GameObject trackerModel;
+    public CameraController cameraController;
 
     // Start is called before the first frame update
     void Start()
@@ -22,15 +23,21 @@ public class KeyboardShortcuts : MonoBehaviour
             Application.Quit();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            focalPointModel.SetActive(!focalPointModel.active);
+            controlPointModel.SetActive(!controlPointModel.active);
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
+        // Reset the Camera to Default and Fit
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            kitModel.SetActive(!kitModel.active);
-            trackerModel.SetActive(!trackerModel.active);
+            cameraController.SetCameraDefault();
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            kitModel.SetActive(!kitModel.activeSelf);
+            trackerModel.SetActive(!trackerModel.activeSelf);
         }
     }
 }
