@@ -74,7 +74,7 @@ topLevelInputs[("palm_normal", crossProductInst.rhs)] = (0, 0, 0)
 topLevelInputs[("palm_direction", composeTransform.y)] = (0, 0, 0)
 topLevelInputs[("palm_normal", composeTransform.z)] = (0, 0, 0)
 
-fingerScan = sh.createSensationFromPath("IndexFingerScan",
+fingerScan = sh.createSensationFromPath("Finger Scan",
                                   topLevelInputs,
                                   output = translateAlongPath.out,
                                   drawFrequency = 40,

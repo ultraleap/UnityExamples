@@ -22,7 +22,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public string startupSensationName = "CircleSensation";
 
-        public bool handPresenceActivatesPlayback { get; set; } = false;
+        public bool handPresenceActivatesPlayback { get; set; } = true;
         public bool handPresent { get; set; } = false;
 
         // Use this for initialization
@@ -33,6 +33,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
             // Start Playback in Stopped State
             EnablePlayback(false);
+
+            Application.targetFrameRate = 200;
         }
 
         // Update is called once per frame
