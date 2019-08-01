@@ -48,12 +48,26 @@ namespace UltrahapticsCoreAsset.UnityExamples
             foreach (SensationBlockInput input in sensation.Inputs)
             {
                 string inputName = input.Name;
+                var minValue = float.NegativeInfinity;
+                var maxValue = float.PositiveInfinity;
 
                 // Ignore Time input
                 if (inputName == "t") {
                     continue;
                 }
 
+                try
+                {
+                    minValue = float.Parse(input.GetMetaData<string>("Min-Value"));
+                    Debug.Log("Got a Min value of: " + minValue);
+                    maxValue = float.Parse(input.GetMetaData<string>("Max-Value"));
+                    Debug.Log("Got a Max value of: " + maxValue);
+                }
+                catch
+                {
+                    Debug.Log("No min-max values set for input: " + input.Name + " on Block: " + sensation.SensationBlock);
+                }
+ 
                 // Ignore displaying auto-mapped values (which may be non-hidden)
                 if (autoMapper_.HasValueForInputName(inputName)) {
                     continue;
@@ -84,21 +98,29 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
                     else
                     {
-                        // TODO - fix the negative UI case - it's not rendering as expected
-                        if (initialValue < 0)
+                        if (!float.IsNegativeInfinity(minValue) && !float.IsPositiveInfinity(maxValue))
                         {
-                            sliderControl.slider.minValue = 2.0f * initialValue;
-                            sliderControl.slider.maxValue = 2.0f * -initialValue;
-                        }
-                        if (initialValue > 0)
-                        {
-                            sliderControl.slider.minValue = 0.01f * initialValue;
-                            sliderControl.slider.maxValue = 2.0f * initialValue;
+                            sliderControl.slider.minValue = minValue;
+                            sliderControl.slider.maxValue = maxValue;
+
                         }
                         else
                         {
-                            sliderControl.slider.minValue = 0.0f;
-                            sliderControl.slider.maxValue = 1.0f;
+                            if (initialValue < 0)
+                            {
+                                sliderControl.slider.minValue = 2.0f * initialValue;
+                                sliderControl.slider.maxValue = 2.0f * -initialValue;
+                            }
+                            if (initialValue > 0)
+                            {
+                                sliderControl.slider.minValue = 0.01f * initialValue;
+                                sliderControl.slider.maxValue = 2.0f * initialValue;
+                            }
+                            else
+                            {
+                                sliderControl.slider.minValue = 0.0f;
+                                sliderControl.slider.maxValue = 1.0f;
+                            }
                         }
                     }
 

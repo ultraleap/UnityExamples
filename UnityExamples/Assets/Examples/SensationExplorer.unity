@@ -2121,6 +2121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandController
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c9f2277f2b4414ff9abf05e783890171, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c9f2277f2b4414ff9abf05e783890171, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2552,7 +2556,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensationList: []
-  whiteList: []
+  whiteList:
+  - Finger Scan
+  - Close
+  - Dial
+  - Vertical Line
+  - Finger Patch
+  - Wrist Bar
   blackList:
   - Tickle
   - Point
@@ -4360,7 +4370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 166326, guid: 9d635a1f4fe122f4aa0f296e38f87e68, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 432918, guid: 9d635a1f4fe122f4aa0f296e38f87e68, type: 3}
       propertyPath: m_LocalPosition.x
