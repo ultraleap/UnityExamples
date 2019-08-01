@@ -10,11 +10,11 @@ points = sh.createList(5)
 
 halfWidth = 0.05
 halfDepth = 0.007
-connect(Constant((-halfWidth, 0, -halfDepth)), points["inputs"][0])
-connect(Constant((halfWidth, 0, -halfDepth)), points["inputs"][1])
-connect(Constant((halfWidth, 0, halfDepth)), points["inputs"][2])
-connect(Constant((-halfWidth, 0, halfDepth)), points["inputs"][3])
-connect(Constant((-halfWidth, 0, -halfDepth)), points["inputs"][4])
+connect(Constant((-halfWidth, -halfDepth, 0)), points["inputs"][0])
+connect(Constant((halfWidth, -halfDepth, 0)), points["inputs"][1])
+connect(Constant((halfWidth, halfDepth, 0)), points["inputs"][2])
+connect(Constant((-halfWidth, halfDepth, 0)), points["inputs"][3])
+connect(Constant((-halfWidth, -halfDepth, 0)), points["inputs"][4])
 
 connect(points["output"], bar.points)
 path = bar.out
@@ -40,7 +40,7 @@ connect(path, transformPath.path)
 
 handBar = sh.createSensationFromPath("Wrist Bar",
 						{
-						("offset", offsetVector.y) : (-0.07, 0.0, 0.0)
+						("offset", offsetVector.y) : (-0.06, 0.0, 0.0)
 						},
                         output = transformPath.out,
                         drawFrequency = 90,
