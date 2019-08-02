@@ -8,6 +8,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
     {
 
         public RectTransform contentRect;
+        public Transform activeSensationTransform;
         public FixationDropdownUI fixationDropdownUI;
         public List<GameObject> inputRows = null;
         private IAutoMapper autoMapper_;
@@ -33,6 +34,11 @@ namespace UltrahapticsCoreAsset.UnityExamples
         {
             ClearInputGameObjects();
 
+            foreach (Transform child in activeSensationTransform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+
             // Determine whether Sensation supports Freeform positioning (e.g. Allow-Transform)
             bool supportsTransform;
             try
@@ -56,12 +62,16 @@ namespace UltrahapticsCoreAsset.UnityExamples
                     continue;
                 }
 
+                // Ignore invisible inputs
+                if (!input.IsVisible)
+                {
+                    continue;
+                }
+
                 try
                 {
                     minValue = float.Parse(input.GetMetaData<string>("Min-Value"));
-                    Debug.Log("Got a Min value of: " + minValue);
                     maxValue = float.Parse(input.GetMetaData<string>("Max-Value"));
-                    Debug.Log("Got a Max value of: " + maxValue);
                 }
                 catch
                 {
@@ -73,7 +83,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
                     continue;
                 }
 
-                if (input.Type == "Scalar" && input.IsVisible)
+                if (input.Type == "Scalar")
                 {
                     var initialValue = input.Value.x;
                     var scalarInputRow = (GameObject)Instantiate(Resources.Load("ScalarSlider"), contentRect.transform);
@@ -131,7 +141,25 @@ namespace UltrahapticsCoreAsset.UnityExamples
                     sliderControl.blockInput = input;
                 }
 
-                else if (input.IsVisible == true)
+                else if (input.Type == "Point")
+                {
+                    // Get the name of the point input
+                    var PointObject = (GameObject)Instantiate(Resources.Load("Point"), activeSensationTransform.transform);
+
+                    //inputRows.Add(PointObject);
+
+                    var pointUI = PointObject.GetComponent<SensationPointUI>();
+
+                    PointObject.transform.localPosition = new Vector3(input.Value.x, input.Value.y, input.Value.z);
+
+                    pointUI.sensation = sensation;
+                    pointUI.blockInput = input;
+
+                    pointUI.gameObject.name = input.Name;
+                }
+
+                // If no type specified, assume it's Vector3 (XYZControl)
+                else
                 {
                     var XYZInputRow = (GameObject)Instantiate(Resources.Load("XYZControl"), contentRect.transform);
 
