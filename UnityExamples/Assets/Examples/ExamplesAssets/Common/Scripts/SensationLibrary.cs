@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.IO;
 using System;
 using System.Collections.Generic;
@@ -13,13 +12,18 @@ namespace UltrahapticsCoreAsset.UnityExamples
         // The full list that SensationCore knows about
         public List<string> sensationList;
 
-        // List of Sensation Block names to ignore
-        [SerializeField] public List<string> whiteList;
+        // This JSON file will allow users to set the white/black list of sensations
+        private string libraryListStreamingAssetFilename = "/SensationExplorerLibraryList.json";
 
-        // List of Sensation Block names to ignore
-        [SerializeField] public List<string> blackList;
+        [Serializable]
+        public class SensationIncludeExcludeList
+        {
+            public List<string> includeList;
+            public List<string> excludeList;
+        }
 
         private BlockLibrary blockLibrary;
+        public SensationIncludeExcludeList includeExcludeList;
 
         public void BuildBlockLibrary()
         {
@@ -28,28 +32,31 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 blockLibrary = new BlockLibrary();
             }
 
+            string includeExcludeJSON = File.ReadAllText(Application.streamingAssetsPath + libraryListStreamingAssetFilename);
+            includeExcludeList = JsonUtility.FromJson<SensationIncludeExcludeList>(includeExcludeJSON);
+
             // Build the full sorted list
             List<string> sortedBlockList = blockLibrary.SortedBlockList();
 
-            // if the White list is empty, assume all is required, except for blacklisted.
-            if (whiteList.Count == 0)
+            // if the include list is empty, assume all is required, except for excludelisted.
+            if (includeExcludeList.includeList.Count == 0)
             {
-                sensationList = sortedBlockList.Except(blackList).ToList();
+                sensationList = sortedBlockList.Except(includeExcludeList.excludeList).ToList();
             }
-            // Otherwise, only include WhiteListed items.
+            // Otherwise, only include includeListed items.
             else
             {
-                sensationList = whiteList.ToList();
-                // A final filter just in case White list contains non-available Sensations
+                sensationList = includeExcludeList.includeList.ToList();
+                // A final filter just in case include list contains non-available Sensations
                 foreach (string sensationName in sensationList)
                 {
                     if (!sortedBlockList.Contains(sensationName))
                     {
                         Debug.LogWarning("Unable to locate Sensation named: " + sensationName);
-                        whiteList.Remove(sensationName);
+                        includeExcludeList.includeList.Remove(sensationName);
                     }
                 }
-                sensationList = whiteList;
+                sensationList = includeExcludeList.includeList;
             }
         }
     }

@@ -1,0 +1,19 @@
+﻿{
+    "includeList": [],
+    "excludeList": [
+        "Tickle",
+        "Point",
+        "HandPolyline",
+        "ExtrudedCircle",
+        "ExtrudedPolyline",
+        "Square",
+        "LeftRightTest",
+        "PalmTrackedDial",
+        "PathOnRail",
+        "DialSensation",
+        "FingerPatch",
+        "Cylidner",
+        "Cuboid",
+        "TrackedLine"
+    ]
+}
