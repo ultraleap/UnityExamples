@@ -1,5 +1,7 @@
 ## Unity Example Projects ##
-This repo includes additional Unity projects which demonstrate functionality of the UCA.
+This repo includes additional Unity projects which demonstrate functionality of the Ultrahaptics Core Asset (UCA) for Unity.
+
+[Note: To use these examples, you must download and import the latest UCA .unitypackage from here](https://developer.ultrahaptics.com/download/uca-download-now/)
 
 These projects have been built and tested with Unity 2019.1.8f on Windows 64-bit.
 
