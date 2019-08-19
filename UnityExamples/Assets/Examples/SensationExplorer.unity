@@ -2556,7 +2556,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensationList: []
-  includeExcludeJSON: {fileID: 4900000, guid: 8634bca29591e416da723b8a542afe32, type: 3}
+  includeExcludeList:
+    includeList: []
+    excludeList: []
 --- !u!1 &875473117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,7 +2598,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875473117}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97cfe5201d793bc419177b980771a11b, type: 3}
   m_Name: 
@@ -2879,7 +2881,7 @@ MonoBehaviour:
   priority_: 0
   Inputs:
     inputs_: []
-    supportsTransform_: 0
+    supportsTransform_: 1
     TrackingObject: {fileID: 0}
 --- !u!4 &967683299
 Transform:
@@ -5897,7 +5899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92cf2a98b8b842e98ec9d29798f1609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Version: 1
+  Version: 0
 --- !u!1 &1766687259401476
 GameObject:
   m_ObjectHideFlags: 0
@@ -5985,7 +5987,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650398000159084}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.121}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6219,7 +6221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showKitModels: 1
-  useDefaultLayout: 1
+  useDefaultLayout: 0
   ultrahapticsKitModel: 0
   arrayModel: {fileID: 4869500035276072}
   trackingOrigin: {fileID: 4764851798046312}
@@ -6235,7 +6237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f6d945ba2f24fb4a814ca6fd8599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllowMockEmitter: 0
+  AllowMockEmitter: 1
   ArrayTransform: {fileID: 4638323507298630}
   SphereRadius: 0.005
   SphereColor: {r: 0.39215687, g: 0.654902, b: 0.043137256, a: 1}

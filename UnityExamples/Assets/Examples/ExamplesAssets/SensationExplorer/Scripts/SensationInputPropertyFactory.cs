@@ -68,6 +68,46 @@ namespace UltrahapticsCoreAsset.UnityExamples
                     continue;
                 }
 
+                // It is currently possible not to have an Input Type
+                // Via MetaData we can inject arbitrary Types - This example checks for 'MetaType' data.
+                if (input.Type.Length == 0 || input.Type == "")
+                {
+                    Debug.Log("No Block Input Type specified.");
+                    // Check for MetaTypes...
+                    try
+                    {
+                        string metaType = input.GetMetaData<string>("MetaType");
+                        print("META TYPE: " + metaType);
+                        if (metaType == "Boolean")
+                        {
+                            // Get the name of the point input
+                            var CheckboxObject = (GameObject)Instantiate(Resources.Load("BooleanControl"), contentRect.transform);
+
+                            var checkboxControl = CheckboxObject.GetComponent<SensationSourceCheckboxControl>();
+                            checkboxControl.sensation = sensation;
+                            checkboxControl.blockInput = input;
+                            checkboxControl.inputName.text = input.Name;
+                            checkboxControl.checkbox.isOn = input.Value.x > 0;
+                        }
+                    }
+                    catch
+                    {
+                        Debug.Log("No Input type or MetaType could be determined for input: " + input.Name + " - assume Vector3");
+                        var XYZInputRow = (GameObject)Instantiate(Resources.Load("XYZControl"), contentRect.transform);
+
+                        inputRows.Add(XYZInputRow);
+
+                        var vector3Control = XYZInputRow.GetComponent<SensationSourceVector3Control>();
+                        vector3Control.sensation = sensation;
+                        vector3Control.blockInput = input;
+                        vector3Control.inputName.text = inputName;
+
+                        vector3Control.xValue.text = input.Value.x.ToString();
+                        vector3Control.yValue.text = input.Value.y.ToString();
+                        vector3Control.zValue.text = input.Value.z.ToString();
+                    }
+                }
+
                 try
                 {
                     minValue = float.Parse(input.GetMetaData<string>("Min-Value"));
@@ -145,34 +185,13 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 {
                     // Get the name of the point input
                     var PointObject = (GameObject)Instantiate(Resources.Load("Point"), activeSensationTransform.transform);
-
-                    //inputRows.Add(PointObject);
-
                     var pointUI = PointObject.GetComponent<SensationPointUI>();
 
                     PointObject.transform.localPosition = new Vector3(input.Value.x, input.Value.y, input.Value.z);
 
                     pointUI.sensation = sensation;
                     pointUI.blockInput = input;
-
                     pointUI.gameObject.name = input.Name;
-                }
-
-                // If no type specified, assume it's Vector3 (XYZControl)
-                else
-                {
-                    var XYZInputRow = (GameObject)Instantiate(Resources.Load("XYZControl"), contentRect.transform);
-
-                    inputRows.Add(XYZInputRow);
-
-                    var vector3Control = XYZInputRow.GetComponent<SensationSourceVector3Control>();
-                    vector3Control.sensation = sensation;
-                    vector3Control.blockInput = input;
-                    vector3Control.inputName.text = inputName;
-
-                    vector3Control.xValue.text = input.Value.x.ToString();
-                    vector3Control.yValue.text = input.Value.y.ToString();
-                    vector3Control.zValue.text = input.Value.z.ToString();
                 }
             }
         }
