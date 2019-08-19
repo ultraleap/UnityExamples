@@ -30,7 +30,7 @@ loopScan = sh.createSensationFromPath("LoopScan",
                                           ("endPoint", directionBlockInstance.pointB) : (0, 0.2, 0.06),
                                           ("startPoint", scan.animationPathStart) : (0, 0.2, -0.06),
                                           ("endPoint", scan.animationPathEnd) : (0, 0.2, 0.06),
-                                          ("reversed", reverse.reversed) : (0, 0, 0),                                          
+                                          ("reverse", reverse.reversed) : (0, 0, 0),                                          
                                       },
                                       output = scan.out,
                                       definedInVirtualSpace = True
@@ -42,4 +42,4 @@ setMetaData(loopScan.duration, "Type", "Scalar")
 setMetaData(loopScan.barLength, "Type", "Scalar")
 
 # There's currently no 'Type' to determine a Boolean, so need custom metadata
-setMetaData(loopScan.reversed, "MetaType", "Boolean")
+setMetaData(loopScan.reverse, "MetaType", "Boolean")

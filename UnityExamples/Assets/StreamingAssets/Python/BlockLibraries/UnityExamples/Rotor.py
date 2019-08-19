@@ -30,13 +30,17 @@ transformPathInstance = createInstance("TransformPath", "transformPath")
 connect(composeTransformInstance.out, transformPathInstance.transform)
 connect(linePathInstance.out, transformPathInstance.path)
 
+reverseTimeBlock = createInstance("ReverseTime", "reverseTime")
+connect(reverseTimeBlock.time, animator.t)
+
 # Create hand-tracked Ripple Sensation from output of TransformPath
 rotorSensation = sh.createSensationFromPath("Rotor",
                                                 {
-                                                    ("t" ,animator.t) : (0, 0, 0),
-                                                    ("angleStart" ,animator.min) : (0, 0, 0),
-                                                    ("angleEnd" ,animator.max) : (360, 0, 0),
-                                                    ("period",animator.period) : (1, 0, 0),
+                                                    ("t" ,reverseTimeBlock.t) : (0, 0, 0),
+                                                    ("angleStart", animator.min) : (-180, 0, 0),
+                                                    ("angleEnd", animator.max) : (180, 0, 0),
+                                                    ("period", animator.period) : (1, 0, 0),
+                                                    ("reversed", reverseTimeBlock.reversed) : (0, 0, 0),
                                                 },
                                                 output = transformPathInstance.out,
                                                 drawFrequency = 70)
@@ -45,4 +49,14 @@ setMetaData(rotorSensation.angleStart, "Type", "Scalar")
 setMetaData(rotorSensation.angleEnd, "Type", "Scalar")
 setMetaData(rotorSensation.period, "Type", "Scalar")
 
+setMetaData(rotorSensation.reversed, "MetaType", "Boolean")
+
 setMetaData(rotorSensation, "Allow-Transform", True)
+
+setMetaData(rotorSensation.angleStart, "Min-Value", "-180.0")
+setMetaData(rotorSensation.angleStart, "Max-Value", "180.0")
+setMetaData(rotorSensation.angleEnd, "Min-Value", "-180.0")
+setMetaData(rotorSensation.angleEnd, "Max-Value", "180.0")
+
+
+
