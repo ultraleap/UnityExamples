@@ -6,11 +6,16 @@ using UnityEngine;
 
 // This is a modified version of the UCA's built-in LeapDataSource.
 // The only difference is that there is a default Palm Pose when no hand is present, a la Sensation Editor.
+// In addition, the LeapVersion is decided automatcally, based on the Operating System
 namespace UltrahapticsCoreAsset
 {
     public class SensationExplorerLeapDataSource : MonoBehaviour, IDataSource
     {
-        public LeapVersion Version = (Application.platform == RuntimePlatform.WindowsPlayer) ? LeapVersion.LeapV4 : LeapVersion.LeapV2;
+        public LeapVersion Version = LeapVersion.LeapV4;
+        public bool autoDetectLeapVersion = true;
+
+        public GameObject LeapV2Controller;
+        public GameObject LeapV4Controller;
 
         private readonly Dictionary<string, UnityEngine.Vector3> data_ = new Dictionary<string, UnityEngine.Vector3>();
 
@@ -32,6 +37,18 @@ namespace UltrahapticsCoreAsset
         private readonly ReadOnlyCollection<string> rightHandBonePositionsLookup_ = BonePositionLookup("rightHand_");
 
         private ILeapReflectionData leapReflectionData_;
+
+        public void Start()
+        {
+            if (autoDetectLeapVersion)
+            {
+                Debug.Log("AutoDetectLeap:\n");
+                Debug.Log(Application.platform);
+                Version = (Application.platform == RuntimePlatform.WindowsPlayer) ? LeapVersion.LeapV4 : LeapVersion.LeapV2;
+                LeapV2Controller.SetActive(Version == LeapVersion.LeapV2);
+                LeapV4Controller.SetActive(Version == LeapVersion.LeapV4);
+            }
+        }
 
         public string[] GetAvailableDataItemsForType<T>()
         {
@@ -68,7 +85,6 @@ namespace UltrahapticsCoreAsset
             catch(Exception e)
             {
                 UCA.Logger.LogWarning("Leap Data Source requested HandModel/FingerModel data, but was unable to obtain it. Please check that the Leap Motion Core Assets for Unity are included with your project.\n" + e.Message);
-                enabled = false;
             }
         }
 
