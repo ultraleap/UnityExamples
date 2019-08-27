@@ -42,11 +42,11 @@ namespace UltrahapticsCoreAsset
         {
             if (autoDetectLeapVersion)
             {
-                Debug.Log("AutoDetectLeap:\n");
-                Debug.Log(Application.platform);
                 Version = (Application.platform == RuntimePlatform.WindowsPlayer) ? LeapVersion.LeapV4 : LeapVersion.LeapV2;
                 LeapV2Controller.SetActive(Version == LeapVersion.LeapV2);
                 LeapV4Controller.SetActive(Version == LeapVersion.LeapV4);
+
+                OnEnable();
             }
         }
 
