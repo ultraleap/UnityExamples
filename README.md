@@ -21,4 +21,5 @@ The UnityExamples Project includes the following Example Scenes
 - **SimpleShapes** - demonstrates the ProjectPathOntoPlane Block, to produce simple haptic interaction with Cube, Sphere and Cylinder geometry.
 - **Sphere** - demonstrates a Sphere Sensation Block - touch the moon!
 - **TouchBlock** - demonstrates how to position and animate a Sensation based on the position of a Cube. 
+- **TrackingOriginSetup** - demonstrates how to update the Tracking origin at runtime via a StreamingAssets/TrackingOrigin.json file.
 - **UltrahapticsPoster** - demonstrates how to design an interactive poster. When the hand touches the orb a 'Lightning' haptic is triggered with audio and visuals.
