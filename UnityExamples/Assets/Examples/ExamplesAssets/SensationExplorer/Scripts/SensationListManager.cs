@@ -60,15 +60,27 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 var rowUI = row.GetComponent<SensationRowUI>();
                 rowUI.SetSensationName(sensationName);
                 sensationRows.Add(row);
-                rowUI.button.onClick.AddListener(delegate { SensationSelected(sensationName); });
+                rowUI.button.onClick.AddListener(delegate { SensationSelected(rowUI); });
+                row.name = sensationName;
             }
         }
 
         // This should get called whenever the Button of the SensationRow is clicked.
-        public void SensationSelected(string sensationName)
+        public void SensationSelected(SensationRowUI sensationRowUI)
         {
-            selectedSensationName = sensationName;
-            activeSensationTopText.text = sensationName;
+            sensationRowUI.SetSelectedState(true);
+
+            foreach (GameObject row in sensationRows)
+            {
+                var rowUI = row.GetComponent<SensationRowUI>();
+                if (row.name != sensationRowUI.sensationName)
+                    rowUI.SetSelectedState(false);
+            }
+    
+            
+            selectedSensationName = sensationRowUI.sensationName;
+            
+            activeSensationTopText.text = sensationRowUI.sensationName;
             activeSensation.SensationBlock = selectedSensationName;
             activeSensation.OnValidate();
 
@@ -97,7 +109,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
             var rowUI = activeRow.GetComponent<SensationRowUI>();
 
             rowUI.button.onClick.Invoke();
-            SensationSelected(sensationName);
+            SensationSelected(rowUI);
         }
     }
 }

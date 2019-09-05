@@ -115,7 +115,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 }
                 catch
                 {
-                    Debug.Log("No Min-Value/Max-Value MetaData for input: " + input.Name + " on Block: " + sensation.SensationBlock);
+                    continue;
+                    //Debug.Log("No Min-Value/Max-Value MetaData for input: " + input.Name + " on Block: " + sensation.SensationBlock);
                 }
  
                 // Ignore displaying auto-mapped values (which may be non-hidden)

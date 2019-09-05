@@ -4770,7 +4770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5985,6 +5985,7 @@ GameObject:
   - component: {fileID: 114093627523115738}
   - component: {fileID: 114668312771650480}
   - component: {fileID: 114348005421889146}
+  - component: {fileID: 1164046231469331}
   m_Layer: 0
   m_Name: UltrahapticsKit
   m_TagString: Untagged
@@ -5992,6 +5993,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1164046231469331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164046231469330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cde567fb120e468a8212cdd83e01754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewer: {fileID: 0}
 --- !u!1 &1650398000159084
 GameObject:
   m_ObjectHideFlags: 0
