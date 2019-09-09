@@ -27,8 +27,8 @@ setMetaData(block.palm_position, "Input-Visibility", False)
 setMetaData(block.coneDirection, "Input-Visibility", False)
 setMetaData(block.baseRadius, "Type", "Scalar")
 setMetaData(block.baseOrigin, "Type", "Point")
-setMetaData(block.minHeight, "Type", "Point")
-setMetaData(block.maxHeight, "Type", "Point")
+setMetaData(block.minHeight, "Type", "Scalar")
+setMetaData(block.maxHeight, "Type", "Scalar")
 
 palmPosition = block.palm_position
 radius = block.baseRadius
@@ -36,7 +36,7 @@ radius = block.baseRadius
 coneCircle = createInstance("CirclePath", "coneCircle")
 path = coneCircle.out
 
-# We will linearly interpolate the radius of the circle, between Base, and Base+height
+# We will linearly interpolate the radius of the circle, between min/maxHeight
 lerpInstance = createInstance("Lerp", "lerp")
 
 connect(block.minHeight, lerpInstance.y0)
@@ -69,4 +69,3 @@ pathOnRail = transformPathSpace(block, path, (Constant((1,0,0)),Constant((0,0,1)
 
 focalPoints = createVirtualToPhysicalFocalPointPipeline(block, pathOnRail, 70, renderMode=RenderMode.Loop, intensity= evalOnlyIfIntersecting.out)
 connect(focalPoints, block.out)
-

@@ -23,21 +23,38 @@ public class KeyboardShortcuts : MonoBehaviour
             Application.Quit();
         }
 
+        // Show/Hide the Ultrahaptics Control Points
         if (Input.GetKeyDown(KeyCode.C))
         {
             controlPointModel.SetActive(!controlPointModel.active);
         }
 
-        // Reset the Camera to Default and Fit
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            cameraController.SetCameraDefault();
-        }
-
+        // Show/Hide the Ultrahaptics Kit
         if (Input.GetKeyDown(KeyCode.K))
         {
             kitModel.SetActive(!kitModel.activeSelf);
             trackerModel.SetActive(!trackerModel.activeSelf);
+        }
+
+        // Camera View Shortcuts
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            cameraController.SetCameraLeft();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.F))
+        {
+            cameraController.SetCameraDefault();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            cameraController.SetCameraRight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            cameraController.SetCameraTop();
         }
     }
 }
