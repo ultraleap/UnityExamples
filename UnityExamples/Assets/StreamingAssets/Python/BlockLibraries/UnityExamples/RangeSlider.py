@@ -2,7 +2,6 @@ from pysensationcore import *
 from sensation_helpers import *
 
 import NearestPointOnLine
-import math
 import Ops
 
 # A path constrained to move along a 'rail' defined by a direction and a point on the rail

@@ -62,3 +62,28 @@ setMetaData(zComponent.z, "Sensation-Producing", False)
 def quantizeAndScale(step, scaleFactor, x):
     x = x - math.fmod(x,step)
     return x * scaleFactor
+
+# === ValueInRange ===
+# Like Comparator, but allows inRange/outRange value to be defined.
+comparatorRangeBlock = defineBlock("ValueInRange")
+defineInputs(comparatorRangeBlock, "x", "min", "max", "returnValueIfXInRange", "returnValueIfXNotInRange")
+defineBlockInputDefaultValue(comparatorRangeBlock.x, (0, 0, 0))
+defineBlockInputDefaultValue(comparatorRangeBlock.min, (0, 0, 0))
+defineBlockInputDefaultValue(comparatorRangeBlock.max, (0, 0, 0))
+defineOutputs(comparatorRangeBlock, "out")
+
+def compareRange(inputs):
+	value = inputs[0][0]
+	minValue = inputs[1][0]
+	maxValue = inputs[2][0]
+	returnInRangeValue = inputs[3]
+	returnOutRangeValue = inputs[4]
+
+	inRange = (value >= minValue) and (value <= maxValue)
+	if inRange:
+		return returnInRangeValue
+	else:
+		return returnOutRangeValue
+
+defineBlockOutputBehaviour(comparatorRangeBlock.out, compareRange)
+setMetaData(comparatorRangeBlock.out, "Sensation-Producing", False)
