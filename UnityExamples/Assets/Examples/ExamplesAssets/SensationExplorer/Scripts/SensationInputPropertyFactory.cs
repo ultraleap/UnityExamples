@@ -8,6 +8,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
     {
 
         public RectTransform contentRect;
+        public GameObject dummySensationTransform;
         public Transform activeSensationTransform;
         public FixationDropdownUI fixationDropdownUI;
         public List<GameObject> inputRows = null;
@@ -50,6 +51,10 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 supportsTransform = false;
             }
             fixationDropdownUI.gameObject.SetActive(supportsTransform);
+
+            // In the case where Sensations are defined by Points only,
+            // we need to disable the Global sensation transform so that we can select points only
+            dummySensationTransform.gameObject.SetActive(supportsTransform);
 
             foreach (SensationBlockInput input in sensation.Inputs)
             {
