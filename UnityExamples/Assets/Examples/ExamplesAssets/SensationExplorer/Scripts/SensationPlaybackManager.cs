@@ -18,6 +18,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public Transform sensationTransform;
 
+        public Toggle loopToggle;
+
         public ResetSensationButton resetButton;
 
         public string startupSensationName = "CircleSensation";
@@ -67,10 +69,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
             handPresent = true;
             if (handPresenceActivatesPlayback)
             {
-                if (!SensationTimelineIsRunning())
-                {
-                    EnablePlayback(true);
-                }
+                RestartPlayback();
             }
         }
 
@@ -79,10 +78,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
             handPresent = false;
             if (handPresenceActivatesPlayback)
             {
-                if (SensationTimelineIsRunning())
-                {
-                    EnablePlayback(false);
-                }
+                EnablePlayback(false);
             }
         }
 
@@ -114,20 +110,33 @@ namespace UltrahapticsCoreAsset.UnityExamples
             }
         }
 
-        public void EnablePlayback(bool playing)
+        // Call this to start time at 0
+        public void RestartPlayback()
         {
-            activeSensation.enabled = playing;
-            playbackButtonImage.sprite = playing ? stopSprite : playSprite;
+            EnablePlayback(false);
+            EnablePlayback(true);
+        }
 
-            if (playing)
+        public void SetLooping(bool looping)
+        {
+            if (looping)
             {
+                playableDirector.time = 120;
                 playableDirector.Play();
+                loopToggle.isOn = true;
             }
             else
             {
                 playableDirector.Stop();
+                playableDirector.time = 0;
+                loopToggle.isOn = false;
             }
-            
+        }
+
+        public void EnablePlayback(bool playing)
+        {
+            activeSensation.enabled = playing;
+            playbackButtonImage.sprite = playing ? stopSprite : playSprite;          
         }
     }
 }

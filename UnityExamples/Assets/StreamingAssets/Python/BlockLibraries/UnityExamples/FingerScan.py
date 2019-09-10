@@ -93,3 +93,6 @@ for topLevelInput in topLevelInputs.keys():
     if inputName not in visibleInputs:
         setMetaData(getattr(fingerScan, inputName), "Input-Visibility", False)
         
+
+# The Finger Scan is a single shot (Finite) Sensation
+setMetaData(fingerScan, "IsFinite", True)

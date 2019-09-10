@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using UnityEngine.Events;
 
 namespace UltrahapticsCoreAsset.UnityExamples
 {
@@ -15,28 +13,6 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public Color selectedTextColor;
         public Color deselectedTextColor;
 
-        public Sprite selectedSprite;
-
-        // Use this for initialization
-        void Start()
-        {
-
-        }
-
-        // TODO: activate the SensationRow in code
-
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        private void OnMouseOver()
-        {
-            Debug.Log("Mouse Hover on row:" + sensationName);
-        }
-
         public void SetSensationName(string name)
         {
             var rowText = button.GetComponentsInChildren<Text>();
@@ -44,9 +20,9 @@ namespace UltrahapticsCoreAsset.UnityExamples
             sensationName = name;
         }
 
+        // TODO: This could be controlled via an 'OnSelect' event?
         public void SetSelectedState(bool selected)
         {
-            Debug.Log("seteSelected called:" + selected);
             sensationNameText.color = selected ? selectedTextColor : deselectedTextColor;
         }
     }

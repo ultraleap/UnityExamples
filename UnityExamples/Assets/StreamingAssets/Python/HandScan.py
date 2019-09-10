@@ -34,3 +34,4 @@ setMetaData(handScan.middleFinger_distal_position, "Input-Visibility", False)
 
 setMetaData(handScan.duration, "Type", "Scalar")
 setMetaData(handScan.barLength, "Type", "Scalar")
+setMetaData(handScan, "IsFinite", True)

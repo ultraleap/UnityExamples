@@ -11,13 +11,15 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public GameObject dummySensationTransform;
         public Transform activeSensationTransform;
         public FixationDropdownUI fixationDropdownUI;
+        public SensationPlaybackManager playbackManager;
+        public GameObject loopPlaybackUI;
         public List<GameObject> inputRows = null;
         private IAutoMapper autoMapper_;
 
         // Use this for initialization
         void Start()
         {
-            autoMapper_ = GameObject.FindObjectOfType<IAutoMapper>();
+            autoMapper_ = FindObjectOfType<IAutoMapper>();
             ClearInputGameObjects();
         }
 
@@ -31,13 +33,18 @@ namespace UltrahapticsCoreAsset.UnityExamples
             inputRows.Clear();
         }
 
+        public void AddTimingUI()
+        {
+
+        }
+
         public void SetSensationInputsFromSensation(SensationSource sensation)
         {
             ClearInputGameObjects();
 
             foreach (Transform child in activeSensationTransform)
             {
-                GameObject.Destroy(child.gameObject);
+                Destroy(child.gameObject);
             }
 
             // Determine whether Sensation supports Freeform positioning (e.g. Allow-Transform)
@@ -77,12 +84,11 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 // Via MetaData we can inject arbitrary Types - This example checks for 'MetaType' data.
                 if (input.Type.Length == 0 || input.Type == "")
                 {
-                    Debug.Log("No Block Input Type specified.");
+                    // No Block Input Type specified
                     // Check for MetaTypes...
                     try
                     {
                         string metaType = input.GetMetaData<string>("MetaType");
-                        print("META TYPE: " + metaType);
                         if (metaType == "Boolean")
                         {
                             // Get the name of the point input
@@ -97,7 +103,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
                     }
                     catch
                     {
-                        Debug.Log("No Input type or MetaType could be determined for input: " + input.Name + " - assume Vector3");
+                        //No Input type or MetaType could be determined for input: " + input.Name + " - assume Vector3")
                         var XYZInputRow = (GameObject)Instantiate(Resources.Load("XYZControl"), contentRect.transform);
 
                         inputRows.Add(XYZInputRow);
@@ -198,6 +204,19 @@ namespace UltrahapticsCoreAsset.UnityExamples
                     pointUI.blockInput = input;
                     pointUI.gameObject.name = input.Name;
                 }
+
+                // TODO:, add Time-dependent controls for Repeat Forever, Repetitions.
+                bool isFinite = false;
+                try
+                {
+                    isFinite = sensation.GetMetaData<bool>("IsFinite");
+                }
+                catch (ArgumentException)
+                {
+                    isFinite = false;
+                    playbackManager.SetLooping(false);
+                }
+                loopPlaybackUI.SetActive(isFinite);
             }
         }
     }
