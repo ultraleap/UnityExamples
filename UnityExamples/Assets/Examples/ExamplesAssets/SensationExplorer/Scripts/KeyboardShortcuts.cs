@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RuntimeGizmos;
 
 public class KeyboardShortcuts : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class KeyboardShortcuts : MonoBehaviour
     public GameObject kitModel;
     public GameObject trackerModel;
     public CameraController cameraController;
+    public TransformGizmo transformOverlays;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,12 @@ public class KeyboardShortcuts : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             controlPointModel.SetActive(!controlPointModel.active);
+        }
+
+        // Show/Hide the Ultrahaptics Control Points
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            transformOverlays.enabled = !transformOverlays.enabled;
         }
 
         // Show/Hide the Ultrahaptics Kit
