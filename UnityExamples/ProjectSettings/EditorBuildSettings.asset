@@ -7,5 +7,5 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Examples/SensationExplorer.unity
-    guid: 7787a2ccc783a4b23b3247137dd545ee
+    guid: ab7fe3fe5e4fa4eed9b7710ea3d756e1
   m_configObjects: {}
