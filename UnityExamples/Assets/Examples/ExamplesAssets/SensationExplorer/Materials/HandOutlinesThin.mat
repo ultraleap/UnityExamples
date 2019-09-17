@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HandOutlines
-  m_Shader: {fileID: 4800000, guid: 642ca661b1c164ba4b447767299c5d6e, type: 3}
+  m_Name: HandOutlinesThin
+  m_Shader: {fileID: 4800000, guid: 1349a1e46ac745c49ab0542dd5d34de8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
@@ -97,7 +97,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Outline: 0.086
+    - _Outline: 0.005
     - _Parallax: 0.02
     - _Rotation: 0
     - _Shininess: 0.7
