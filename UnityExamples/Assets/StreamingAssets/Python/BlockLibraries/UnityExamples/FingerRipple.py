@@ -59,6 +59,8 @@ rippleSensation = sh.createSensationFromPath("FingerRipple",
 
 setMetaData(rippleSensation.period, "Type", "Scalar")
 setMetaData(rippleSensation.radius, "Type", "Scalar")
+setMetaData(rippleSensation.palm_direction, "Input-Visibility", False)
+setMetaData(rippleSensation.palm_normal, "Input-Visibility", False)
 
 # We will use the 20 joint positions of the hand to the inputs
 fingers = ["thumb", "indexFinger", "middleFinger", "ringFinger", "pinkyFinger"]
