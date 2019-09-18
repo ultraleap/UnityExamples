@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: cca6efa648390734188f0f02c3870213
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _riftLeftCalibration: {fileID: 1660184749780864, guid: 381343509d4de844ba11c255b3805202,
+      type: 2}
+  - _riftRightCalibration: {fileID: 1797258831236680, guid: 381343509d4de844ba11c255b3805202,
+      type: 2}
+  - _viveCalibration: {fileID: 1712248925254228, guid: 381343509d4de844ba11c255b3805202,
+      type: 2}
+  - _wmrLeftCalibration: {fileID: 1023712292104970, guid: 381343509d4de844ba11c255b3805202,
+      type: 2}
+  - _wmrRightCalibration: {fileID: 1838844733581352, guid: 381343509d4de844ba11c255b3805202,
+      type: 2}
+  executionOrder: 1
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

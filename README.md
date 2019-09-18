@@ -23,3 +23,4 @@ The UnityExamples Project includes the following Example Scenes
 - **TouchBlock** - demonstrates how to position and animate a Sensation based on the position of a Cube. 
 - **TrackingOriginSetup** - demonstrates how to update the Tracking origin at runtime via a StreamingAssets/TrackingOrigin.json file.
 - **UltrahapticsPoster** - demonstrates how to design an interactive poster. When the hand touches the orb a 'Lightning' haptic is triggered with audio and visuals.
+- **VRArrayAlignment** - demonstrates how to align/anchor an Ultrahaptics array for VR applications. Point the controller at the origin of the array, then click the trigger to transform the camera Rig.
