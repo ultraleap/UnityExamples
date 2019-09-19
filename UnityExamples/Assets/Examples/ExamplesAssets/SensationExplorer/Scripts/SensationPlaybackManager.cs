@@ -39,15 +39,6 @@ namespace UltrahapticsCoreAsset.UnityExamples
             Application.targetFrameRate = 200;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (Input.GetKeyDown("space"))
-            {
-                TogglePlayback();
-            }
-        }
-
         // For simplicity the state of the playable director will be the single
         // point of truth for the playback engine.
         // Returns true if Timeline is actively playing back.
@@ -100,14 +91,18 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public void TogglePlayback()
         {
-            if (!SensationTimelineIsRunning())
+            Debug.Log("TogglePlayback Start: activeSensation.enabled: " +  activeSensation.enabled);
+            if (!SensationTimelineIsRunning() && !activeSensation.enabled)
             {
+                Debug.Log("Toggle: enabling(true)");
                 EnablePlayback(true);
             }
             else
             {
+                Debug.Log("Toggle: enabling(false)");
                 EnablePlayback(false);
             }
+            Debug.Log("TogglePlayback End: !activeSensation.enabled: " + activeSensation.enabled);
         }
 
         // Call this to start time at 0
@@ -123,18 +118,18 @@ namespace UltrahapticsCoreAsset.UnityExamples
             {
                 playableDirector.time = 120;
                 playableDirector.Play();
-                loopToggle.isOn = true;
             }
             else
             {
                 playableDirector.Stop();
                 playableDirector.time = 0;
-                loopToggle.isOn = false;
             }
+            loopToggle.isOn = looping;
         }
 
         public void EnablePlayback(bool playing)
         {
+            Debug.Log("EnablePlayback: " + playing);
             activeSensation.enabled = playing;
             playbackButtonImage.sprite = playing ? stopSprite : playSprite;          
         }

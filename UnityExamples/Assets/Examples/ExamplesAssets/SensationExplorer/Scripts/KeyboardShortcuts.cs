@@ -3,66 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 using RuntimeGizmos;
 
-public class KeyboardShortcuts : MonoBehaviour
+namespace UltrahapticsCoreAsset.UnityExamples
 {
-    public GameObject controlPointModel;
-    public GameObject kitModel;
-    public GameObject trackerModel;
-    public CameraController cameraController;
-    public TransformGizmo transformOverlays;
-
-    // Start is called before the first frame update
-    void Start()
+    public class KeyboardShortcuts : MonoBehaviour
     {
-        
-    }
+        public GameObject controlPointModel;
+        public GameObject kitModel;
+        public GameObject trackerModel;
+        public CameraController cameraController;
+        public TransformGizmo transformOverlays;
+        public SensationPlaybackManager playbackManager;
+        public SensationSource activeSensation;
 
-    // Update is called once per frame
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Start is called before the first frame update
+        void Start()
         {
-            Application.Quit();
+
         }
 
-        // Show/Hide the Ultrahaptics Control Points
-        if (Input.GetKeyDown(KeyCode.C))
+        // Update is called once per frame
+        public void Update()
         {
-            controlPointModel.SetActive(!controlPointModel.active);
-        }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
 
-        // Show/Hide the Ultrahaptics Control Points
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            transformOverlays.enabled = !transformOverlays.enabled;
-        }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("SPACE");
+                playbackManager.TogglePlayback();
+            }
 
-        // Show/Hide the Ultrahaptics Kit
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            kitModel.SetActive(!kitModel.activeSelf);
-            trackerModel.SetActive(!trackerModel.activeSelf);
-        }
+            // Show/Hide the Ultrahaptics Control Points
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                controlPointModel.SetActive(!controlPointModel.active);
+            }
 
-        // Camera View Shortcuts
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            cameraController.SetCameraLeft();
-        }
+            // Show/Hide the Ultrahaptics Control Points
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                transformOverlays.enabled = !transformOverlays.enabled;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.F))
-        {
-            cameraController.SetCameraDefault();
-        }
+            // Show/Hide the Ultrahaptics Kit
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                kitModel.SetActive(!kitModel.activeSelf);
+                trackerModel.SetActive(!trackerModel.activeSelf);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            cameraController.SetCameraRight();
-        }
+            // Camera View Shortcuts
+            if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.L))
+            {
+                cameraController.SetCameraLeft();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Keypad5))
-        {
-            cameraController.SetCameraTop();
+            if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.F))
+            {
+                cameraController.SetCameraDefault();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.R))
+            {
+                cameraController.SetCameraRight();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Keypad5) || Input.GetKeyDown(KeyCode.T))
+            {
+                cameraController.SetCameraTop();
+            }
         }
     }
 }

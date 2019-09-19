@@ -90,10 +90,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 2
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 114556003258319340}
+    m_SelectOnDown: {fileID: 114556003258319340}
+    m_SelectOnLeft: {fileID: 114556003258319340}
+    m_SelectOnRight: {fileID: 114556003258319340}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -255,4 +255,3 @@ MonoBehaviour:
   sensationName: 
   selectedTextColor: {r: 0.45882353, g: 0.20784314, b: 0.87058824, a: 1}
   deselectedTextColor: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
-  selectedSprite: {fileID: 21300000, guid: a9f381f0ce88e4cb2863772c8d947ccb, type: 3}

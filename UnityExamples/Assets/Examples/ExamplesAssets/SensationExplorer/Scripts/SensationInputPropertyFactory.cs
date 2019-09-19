@@ -12,7 +12,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public Transform activeSensationTransform;
         public FixationDropdownUI fixationDropdownUI;
         public SensationPlaybackManager playbackManager;
-        public GameObject loopPlaybackUI;
+        public LoopToggleUI loopPlaybackUI;
         public List<GameObject> inputRows = null;
         private IAutoMapper autoMapper_;
 
@@ -215,7 +215,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 {
                     isFinite = false;
                 }
-                loopPlaybackUI.SetActive(isFinite);
+                loopPlaybackUI.SetLoopActive(isFinite);
                 playbackManager.SetLooping(isFinite);
             }
         }
