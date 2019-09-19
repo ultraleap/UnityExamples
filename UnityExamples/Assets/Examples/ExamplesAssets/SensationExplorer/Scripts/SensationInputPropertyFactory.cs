@@ -214,9 +214,9 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 catch (ArgumentException)
                 {
                     isFinite = false;
-                    playbackManager.SetLooping(false);
                 }
                 loopPlaybackUI.SetActive(isFinite);
+                playbackManager.SetLooping(isFinite);
             }
         }
     }

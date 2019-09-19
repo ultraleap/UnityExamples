@@ -29,6 +29,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
         void Start()
         {
             leapController = new Controller();
+
+            // TODO: Understand why initially reports as UH Device not connected.
             UpdateHardwareStatusIndicators();
         }
 
