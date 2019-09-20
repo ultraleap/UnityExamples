@@ -62,6 +62,11 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
             if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.F))
             {
+                cameraController.SetCameraFront();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Keypad5))
+            {
                 cameraController.SetCameraDefault();
             }
 
@@ -70,7 +75,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 cameraController.SetCameraRight();
             }
 
-            if (Input.GetKeyDown(KeyCode.Keypad5) || Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(KeyCode.Keypad8) || Input.GetKeyDown(KeyCode.T))
             {
                 cameraController.SetCameraTop();
             }

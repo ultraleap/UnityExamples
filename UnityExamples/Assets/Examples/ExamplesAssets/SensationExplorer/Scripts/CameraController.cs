@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     public Transform CameraTop;
     public Transform CameraLeft;
     public Transform CameraRight;
+    public Transform CameraFront;
 
     public float xSpeed = 6.0f;
     public float ySpeed = 6.0f;
@@ -65,6 +66,13 @@ public class CameraController : MonoBehaviour
         transform.localPosition = CameraRight.localPosition;
         transform.localRotation = CameraRight.localRotation;
         transform.localScale = CameraRight.localScale;
+    }
+
+    public void SetCameraFront()
+    {
+        transform.localPosition = CameraFront.localPosition;
+        transform.localRotation = CameraFront.localRotation;
+        transform.localScale = CameraFront.localScale;
     }
 
     void LateUpdate()
