@@ -4145,7 +4145,6 @@ MonoBehaviour:
   sensationTransform: {fileID: 720418008}
   loopToggle: {fileID: 308368201}
   resetButton: {fileID: 494772512}
-  startupSensationName: 
 --- !u!4 &1120411320
 Transform:
   m_ObjectHideFlags: 0

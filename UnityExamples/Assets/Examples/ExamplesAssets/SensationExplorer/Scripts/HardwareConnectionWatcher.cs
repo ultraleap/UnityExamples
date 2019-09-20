@@ -56,7 +56,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public static bool IsUltrahapticsDeviceConnected()
         {
-            return SensationCore.Instance.IsEmitterConnected();
+            return SensationCore.Instance.IsEmitterConnected() && !SensationCore.Instance.EmitterSerialNumber().Equals("MOCK");
         }
 
         public static bool IsLeapDeviceConnected()
