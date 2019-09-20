@@ -3099,7 +3099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensationBlock_: CircleSensation
-  lastSetBlockToUCA_: CircleSensation
+  lastSetBlockToUCA_: 
   running_: 1
   priority_: 0
   Inputs:
@@ -6747,6 +6747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showKitModels: 1
   useDefaultLayout: 0
+  ApplyDefaultLayoutAtRuntime: 1
+  ShowInteractionZone: 0
   ultrahapticsKitModel: 0
   arrayModel: {fileID: 4869500035276072}
   trackingOrigin: {fileID: 4764851798046312}
@@ -6762,7 +6764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f6d945ba2f24fb4a814ca6fd8599fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllowMockEmitter: 1
+  AllowMockEmitter: 0
+  LogEmissionToFile: 0
   ArrayTransform: {fileID: 4638323507298630}
   SphereRadius: 0.005
   SphereColor: {r: 0.39215687, g: 0.654902, b: 0.043137256, a: 1}
