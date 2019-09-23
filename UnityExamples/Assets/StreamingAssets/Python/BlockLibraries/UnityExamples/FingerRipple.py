@@ -25,23 +25,13 @@ muxBlockInstance = createMuxBlockInstance(22, "muxInstance")
 # Connect the output of the RandomInteger to the Mux selector
 connect(randomBlockInstance.out, muxBlockInstance.selector)
 
-composeTransformInstance = createInstance("ComposeTransform", "composeTransform")
-
-connect(Constant((1, 0, 0)), composeTransformInstance.x)
-connect(Constant((0, 0, 1)), composeTransformInstance.y)
-connect(Constant((0, 1, 0)), composeTransformInstance.z)
-
-# The origin of the transform will be the output of the Multiplexer
-connect(muxBlockInstance.out, composeTransformInstance.o)
-
-transformPathInstance = createInstance("TransformPath", "transformPath")
-connect(composeTransformInstance.out, transformPathInstance.transform)
-
 # Additional Transfer to ensure Circle is oriented to palm
 orientToPalmInstance = createInstance("OrientPathToPalm", "orientToPalm")
 
+# The origin of the transform will be the output of the Multiplexer
+connect(muxBlockInstance.out, orientToPalmInstance.offset_position)
+
 connect(circlePathInstance.out, orientToPalmInstance.path)
-connect(orientToPalmInstance.out, transformPathInstance.path)
 
 # Create hand-tracked Ripple Sensation from output of TransformPath
 rippleSensation = sh.createSensationFromPath("FingerRipple",
@@ -52,7 +42,7 @@ rippleSensation = sh.createSensationFromPath("FingerRipple",
                                                     ("palm_direction", orientToPalmInstance.palm_direction) : (0, 0, 0),
                                                     ("palm_normal", orientToPalmInstance.palm_normal) : (0, 0, 0),
                                                 },
-                                                output = transformPathInstance.out,
+                                                output = orientToPalmInstance.out,
                                                 drawFrequency = 70,
                                                 definedInVirtualSpace = True
                                                 )
