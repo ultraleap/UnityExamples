@@ -13,8 +13,9 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public CameraController cameraController;
         public TransformGizmo transformOverlays;
         public SensationPlaybackManager playbackManager;
+        public SensationListManager listManager;
         public SensationSource activeSensation;
-
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -38,7 +39,17 @@ namespace UltrahapticsCoreAsset.UnityExamples
             // Show/Hide the Ultrahaptics Control Points
             if (Input.GetKeyDown(KeyCode.C))
             {
-                controlPointModel.SetActive(!controlPointModel.active);
+                controlPointModel.SetActive(!controlPointModel.activeSelf);
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                listManager.SelectNextSensation();
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                listManager.SelectPreviousSensation();
             }
 
             // Show/Hide the Ultrahaptics Control Points
@@ -55,27 +66,27 @@ namespace UltrahapticsCoreAsset.UnityExamples
             }
 
             // Camera View Shortcuts
-            if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 cameraController.SetCameraLeft();
             }
 
-            if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 cameraController.SetCameraFront();
             }
 
-            if (Input.GetKeyDown(KeyCode.Keypad5))
+            if (Input.GetKeyDown(KeyCode.D))
             {
                 cameraController.SetCameraDefault();
             }
 
-            if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 cameraController.SetCameraRight();
             }
 
-            if (Input.GetKeyDown(KeyCode.Keypad8) || Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(KeyCode.T))
             {
                 cameraController.SetCameraTop();
             }

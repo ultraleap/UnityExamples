@@ -14,12 +14,11 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public SensationPlaybackManager playbackManager;
         public LoopToggleUI loopPlaybackUI;
         public List<GameObject> inputRows = null;
-        private IAutoMapper autoMapper_;
+        public IAutoMapper autoMapper_;
 
         // Use this for initialization
         void Start()
         {
-            autoMapper_ = FindObjectOfType<IAutoMapper>();
             ClearInputGameObjects();
         }
 

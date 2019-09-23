@@ -9,9 +9,12 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public Button button;
         public Text sensationNameText;
         public string sensationName;
+        public Image sensationIcon;
+        public Sprite sensationDefaultSprite;
 
         public Color selectedTextColor;
         public Color deselectedTextColor;
+        public Color deselectedIconColor;
 
         public void SetSensationName(string name)
         {
@@ -24,6 +27,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public void SetSelectedState(bool selected)
         {
             sensationNameText.color = selected ? selectedTextColor : deselectedTextColor;
+            sensationIcon.color = selected ? selectedTextColor : deselectedIconColor;
         }
     }
 }
