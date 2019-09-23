@@ -159,9 +159,37 @@ namespace UltrahapticsCoreAsset
                 data_["virtualObjectXInVirtualSpace"] = new UnityEngine.Vector3(1.0f, 0.0f, 0.0f);
                 data_["virtualObjectYInVirtualSpace"] = new UnityEngine.Vector3(0.0f, 1.0f, 0.0f);
                 data_["virtualObjectZInVirtualSpace"] = new UnityEngine.Vector3(0.0f, 0.0f, 1.0f);
-                ZeroPalmPositionAndOrientation(genericPalmIdentifiers_);
-                ZeroWristPosition(genericWristIdentifiers_);
-                ZeroBonePositions(genericBonePositionsLookup_);
+                data_["virtualObjectZInVirtualSpace"] = new UnityEngine.Vector3(0.0f, 0.0f, 1.0f);
+
+                data_["palm_position"] = new UnityEngine.Vector3(0.0f, 0.2f, 0.0f);
+                data_["palm_direction"] = new UnityEngine.Vector3(0.0f, 0.0f, 1.0f);
+                data_["palm_normal"] = new UnityEngine.Vector3(0.0f, 1.0f, 0.0f);
+                data_["wrist_position"] = new UnityEngine.Vector3(0.0f, 0.2f, -0.05f);
+
+                data_["thumb_metacarpal_position"] = new UnityEngine.Vector3(-0.0275f, 0.2f, -0.0525f);
+                data_["thumb_proximal_position"] = new UnityEngine.Vector3(-0.0425f, 0.2f, -0.0348f);
+                data_["thumb_intermediate_position"] = new UnityEngine.Vector3(-0.0699f, 0.2f, -0.007f);
+                data_["thumb_distal_position"] = new UnityEngine.Vector3(-0.0925f, 0.2f, 0.0067f);
+
+                data_["indexFinger_metacarpal_position"] = new UnityEngine.Vector3(-0.0219f, 0.2f, -0.0062f);
+                data_["indexFinger_proximal_position"] = new UnityEngine.Vector3(-0.03266f, 0.2f, 0.0449f);
+                data_["indexFinger_intermediate_position"] = new UnityEngine.Vector3(-0.04338f, 0.2f, 0.07497f);
+                data_["indexFinger_distal_position"] = new UnityEngine.Vector3(-0.0502f, 0.2f, 0.093f);
+
+                data_["middleFinger_metacarpal_position"] = new UnityEngine.Vector3(-0.0057f, 0.2f, -0.00566f);
+                data_["middleFinger_proximal_position"] = new UnityEngine.Vector3(-0.0053f, 0.2f, 0.0475f);
+                data_["middleFinger_intermediate_position"] = new UnityEngine.Vector3(-0.00611f, 0.2f, 0.0838f);
+                data_["middleFinger_distal_position"] = new UnityEngine.Vector3(-0.0069f, 0.2f, 0.1062f);
+
+                data_["ringFinger_metacarpal_position"] = new UnityEngine.Vector3(0.0101f, 0.2f, -0.0095f);
+                data_["ringFinger_proximal_position"] = new UnityEngine.Vector3(0.0197f, 0.2f, 0.0376f);
+                data_["ringFinger_intermediate_position"] = new UnityEngine.Vector3(0.0267f, 0.2f, 0.0709f);
+                data_["ringFinger_distal_position"] = new UnityEngine.Vector3(0.031f, 0.2f, 0.092f);
+
+                data_["pinkyFinger_metacarpal_position"] = new UnityEngine.Vector3(0.0242f, 0.2f, -0.01695f);
+                data_["pinkyFinger_proximal_position"] = new UnityEngine.Vector3(0.0389f, 0.2f, 0.0225f);
+                data_["pinkyFinger_intermediate_position"] = new UnityEngine.Vector3(0.0482f, 0.2f, 0.0465f);
+                data_["pinkyFinger_distal_position"] = new UnityEngine.Vector3(0.0542f, 0.2f, 0.0628f);
             }
 
             if (HandIsPresent(leftHand_))
