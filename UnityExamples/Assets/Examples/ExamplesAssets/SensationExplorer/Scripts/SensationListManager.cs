@@ -8,9 +8,11 @@ namespace UltrahapticsCoreAsset.UnityExamples
 {
     public class SensationListManager : MonoBehaviour
     {
+        
+        private SensationRowUI selectedSensationRowUI;
+
         public List<GameObject> sensationRows;
         public RectTransform contentRect;
-
         public GameObject SensationRowPrefab;
         public SensationLibrary sensationLibrary;
         public SensationInputPropertyFactory inputPropertyFactory;
@@ -21,6 +23,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public Text activeSensationTopText;
 
         public string selectedSensationName;
+        public string startupSensationName = "CircleSensation";
+
 
         // Use this for initialization
         void Start()
@@ -31,7 +35,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
             }
             RefreshSensationList();
 
-            // TODO On Start, select the startup Sensation
+            // Optionally, on Start, select the startup Sensation
             //ActivateSensationByName(startupSensationName);
         }
 
@@ -44,6 +48,64 @@ namespace UltrahapticsCoreAsset.UnityExamples
             }
         }
 
+        public void SelectNextSensation()
+        {
+            var sensationList = sensationLibrary.sensationList;
+            if (selectedSensationRowUI != null)
+            {           
+                var selectedGameObject = selectedSensationRowUI.gameObject;
+                var index = sensationRows.IndexOf(selectedGameObject);
+
+                if (index < 0)
+                {
+                    index = 0;
+                }
+                else if (index > sensationList.Count - 2)
+                {
+                    index = sensationList.Count - 1;
+                }
+                else
+                {
+                    index += 1; 
+                }
+                ActivateSensationByName(sensationList[index]);
+            }
+            else
+            {
+                ActivateSensationByName(sensationList[0]);
+            }
+        }
+
+        public void SelectPreviousSensation()
+        {
+            var sensationList = sensationLibrary.sensationList;
+            if (selectedSensationRowUI != null)
+            {
+                var selectedGameObject = selectedSensationRowUI.gameObject;
+                var index = sensationRows.IndexOf(selectedGameObject);
+
+                if (index <= 0)
+                {
+                    index = 0;
+                }
+                else if (index > sensationList.Count - 1)
+                {
+                    index = sensationList.Count - 2;
+                }
+                else
+                {
+                    index -= 1;
+                }
+                ActivateSensationByName(sensationList[index]);
+            }
+            else
+            {
+                ActivateSensationByName(sensationList[0]);
+            }
+        }
+
+
+        // Used to remove all of the Child Game Objects in Content GameObject.
         public void RefreshSensationList()
         {
             sensationRows.Clear();
@@ -68,34 +130,30 @@ namespace UltrahapticsCoreAsset.UnityExamples
         // This should get called whenever the Button of the SensationRow is clicked.
         public void SensationSelected(SensationRowUI sensationRowUI)
         {
-            sensationRowUI.SetSelectedState(true);
-
-            foreach (GameObject row in sensationRows)
+            if (selectedSensationRowUI != null)
             {
-                var rowUI = row.GetComponent<SensationRowUI>();
-                if (row.name != sensationRowUI.sensationName)
-                    rowUI.SetSelectedState(false);
+                selectedSensationRowUI.SetSelectedState(false);
             }
-    
+
+            selectedSensationRowUI = sensationRowUI;
+            sensationRowUI.SetSelectedState(true);
             
-            selectedSensationName = sensationRowUI.sensationName;
-            
-            activeSensationTopText.text = sensationRowUI.sensationName;
-            activeSensation.SensationBlock = selectedSensationName;
+            activeSensationTopText.text = selectedSensationRowUI.sensationName;
+            activeSensation.SensationBlock = selectedSensationRowUI.sensationName;
             activeSensation.OnValidate();
 
             // Now pass the Sensation Source to the Sensation Input Property Factory
             inputPropertyFactory.SetSensationInputsFromSensation(activeSensation);
 
-            playbackManager.ResetSensationToDefault();
+            // We might optionally want to keep the values, and not reset each time...
+            //playbackManager.ResetSensationToDefault();
 
             // If a Sensation is selected, set the playback state to true
             playbackManager.EnablePlayback(true);
 
         }
 
-        // TODO: This method needs to activate the row item with a given 
-        // Sensation name...
+        // This method activates row item with a given Sensation name...
         public void ActivateSensationByName(string sensationName)
         {
             // Get index of sensationName in list
@@ -108,7 +166,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
             var activeRow = sensationRows[index];
             var rowUI = activeRow.GetComponent<SensationRowUI>();
 
-            rowUI.button.onClick.Invoke();
+            rowUI.button.Select();
             SensationSelected(rowUI);
         }
     }

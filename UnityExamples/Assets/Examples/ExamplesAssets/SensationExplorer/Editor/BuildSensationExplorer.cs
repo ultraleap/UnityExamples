@@ -51,10 +51,10 @@ public class BuildSensationExplorer : MonoBehaviour
         buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
         buildPlayerOptions.options = BuildOptions.None;
 
-        var buildDir = "C:\temp";
         var productName = PlayerSettings.productName;
         var productVersion = PlayerSettings.bundleVersion;
         var appName = productName + productVersion + ".exe";
+        var buildDir = "C:\\temp\\" + productName + productVersion + "\\";
         var buildPath = buildDir + appName;
 
         Debug.Log("Build App name is:" + buildPath);

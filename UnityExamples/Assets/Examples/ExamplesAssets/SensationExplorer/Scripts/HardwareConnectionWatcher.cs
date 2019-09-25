@@ -29,6 +29,8 @@ namespace UltrahapticsCoreAsset.UnityExamples
         void Start()
         {
             leapController = new Controller();
+
+            // TODO: Understand why initially reports as UH Device not connected.
             UpdateHardwareStatusIndicators();
         }
 
@@ -54,7 +56,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public static bool IsUltrahapticsDeviceConnected()
         {
-            return SensationCore.Instance.IsEmitterConnected();
+            return SensationCore.Instance.IsEmitterConnected() && !SensationCore.Instance.EmitterSerialNumber().Equals("MOCK");
         }
 
         public static bool IsLeapDeviceConnected()

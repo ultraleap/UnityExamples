@@ -22,8 +22,6 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public ResetSensationButton resetButton;
 
-        public string startupSensationName = "CircleSensation";
-
         public bool handPresenceActivatesPlayback { get; set; } = true;
         public bool handPresent { get; set; } = false;
 
@@ -31,7 +29,6 @@ namespace UltrahapticsCoreAsset.UnityExamples
         void Start()
         {
             activeSensation.inputsCache.Clear();
-            //sensationListManager.ActivateSensationByName(startupSensationName);
 
             // Start Playback in Stopped State
             EnablePlayback(false);
@@ -39,17 +36,6 @@ namespace UltrahapticsCoreAsset.UnityExamples
             Application.targetFrameRate = 200;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (Input.GetKeyDown("space"))
-            {
-                TogglePlayback();
-            }
-        }
-
-        // For simplicity the state of the playable director will be the single
-        // point of truth for the playback engine.
         // Returns true if Timeline is actively playing back.
         public bool SensationTimelineIsRunning()
         {
@@ -100,7 +86,7 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         public void TogglePlayback()
         {
-            if (!SensationTimelineIsRunning())
+            if (!SensationTimelineIsRunning() && !activeSensation.enabled)
             {
                 EnablePlayback(true);
             }
@@ -121,16 +107,16 @@ namespace UltrahapticsCoreAsset.UnityExamples
         {
             if (looping)
             {
+                // TODO: Programmatically set the timeline via Playables library
                 playableDirector.time = 120;
                 playableDirector.Play();
-                loopToggle.isOn = true;
             }
             else
             {
                 playableDirector.Stop();
                 playableDirector.time = 0;
-                loopToggle.isOn = false;
             }
+            loopToggle.isOn = looping;
         }
 
         public void EnablePlayback(bool playing)
