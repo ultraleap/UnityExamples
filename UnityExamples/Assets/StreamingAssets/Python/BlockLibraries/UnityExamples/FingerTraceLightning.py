@@ -44,7 +44,7 @@ connect(finger4Path.out, muxJointPath.input4 )
 # Connect the output of the RandomInteger to the Mux5 selector
 connect(randomBlockInstance.out, muxJointPath.selector)
 
-lightningBlock = sh.createSensationFromPath("FingerTraceLightning",
+lightningBlock = sh.createSensationFromPath("Hand Lightning",
                            {
                                ("t", randomBlockInstance.t) : (0, 0, 0),
                                ("scanPeriod", randomBlockInstance.period) : (0.15, 0.0, 0.0),

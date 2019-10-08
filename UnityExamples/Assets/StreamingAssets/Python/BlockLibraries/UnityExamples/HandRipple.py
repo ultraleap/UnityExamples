@@ -34,7 +34,7 @@ connect(muxBlockInstance.out, orientToPalmInstance.offset_position)
 connect(circlePathInstance.out, orientToPalmInstance.path)
 
 # Create hand-tracked Ripple Sensation from output of TransformPath
-rippleSensation = sh.createSensationFromPath("FingerRipple",
+rippleSensation = sh.createSensationFromPath("Hand Ripple",
                                                 {
                                                     ("t", randomBlockInstance.t) : (0,0,0),
                                                     ("period", randomBlockInstance.period) : (0.05, 0.0, 0.0),

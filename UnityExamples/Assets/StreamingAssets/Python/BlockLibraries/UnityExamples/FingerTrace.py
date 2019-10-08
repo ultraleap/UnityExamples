@@ -50,7 +50,7 @@ topLevelInputs[("dotSize", circlePath.radius)] = (0.01, 0, 0)
 topLevelInputs[("palm_direction", orientToPalmInstance.palm_direction)] = (0, 0, 0)
 topLevelInputs[("palm_normal", orientToPalmInstance.palm_normal)] = (0, 0, 0)
 
-fingerScan = sh.createSensationFromPath("PolylineFingerScan",
+fingerScan = sh.createSensationFromPath("Finger Trace",
                                   topLevelInputs,
                                   output = translateAlongPath.out,
                                   drawFrequency = 120,
