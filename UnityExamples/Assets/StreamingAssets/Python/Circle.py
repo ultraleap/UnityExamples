@@ -4,7 +4,7 @@ import sensation_helpers as sh
 
 pathInstance = createInstance("CirclePath", "CirclePathInstance")
 
-circle = sh.createSensationFromPath("CircleSensation",
+circle = sh.createSensationFromPath("Circle",
                                     {
                                         ("radius", pathInstance.radius) : (0.02, 0, 0),
                                     },

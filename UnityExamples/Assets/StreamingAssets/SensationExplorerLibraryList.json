@@ -1,5 +1,22 @@
 ﻿{
-    "includeList": [],
+    "includeList": [
+      "Circle",
+      "Click",
+      "Close",
+      "Dial",
+      "Finger Scan",
+      "Finger Trace",
+      "Forcefield",
+      "Lightning",
+      "Ripple",
+      "Hand Scan",
+      "Lissajous",
+      "Polyline",
+      "Rose",
+      "Rotor",
+      "Tickle",
+      "Warning"
+    ],
     "excludeList": [
         "Cylinder",
         "Cone",

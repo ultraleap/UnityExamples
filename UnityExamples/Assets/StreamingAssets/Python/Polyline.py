@@ -7,7 +7,7 @@ prefix = "point"
 points = sh.createList(pointCount)
 connect(points["output"], pathInstance.points)
 
-polyline = sh.createSensationFromPath("Polyline6",
+polyline = sh.createSensationFromPath("Polyline",
                                       {
                                           ("point0", points["inputs"][0]) : (0.0, 0.025, 0.0),
                                           ("point1", points["inputs"][1]) : (0.024, 0.008, 0.0),

@@ -12,7 +12,7 @@ connect(Constant((0, 0, 0)), comparator.returnValueIfAGreaterThanB)
 connect(Constant((1, 0, 0)), comparator.returnValueIfAEqualsB)
 connect(Constant((1, 0, 0)), comparator.returnValueIfALessThanB)
 
-handScan = sh.createSensationFromPath("HandScan",
+handScan = sh.createSensationFromPath("Hand Scan",
                                       {
                                           ("t", scan.t) : (0, 0, 0),
                                           ("duration", scan.duration) : (2, 0, 0),

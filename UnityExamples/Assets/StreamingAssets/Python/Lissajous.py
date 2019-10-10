@@ -4,7 +4,7 @@ import sensation_helpers as sh
 
 lissajousPath = createInstance("LissajousPath", "LissajousInstance")
 
-lissajous = sh.createSensationFromPath("LissajousSensation",
+lissajous = sh.createSensationFromPath("Lissajous",
                                        {
                                            ("sizeX", lissajousPath.sizeX) : (0.01, 0.0, 0.0),
                                            ("sizeY", lissajousPath.sizeY) : (0.01, 0.0, 0.0),
