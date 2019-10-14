@@ -2188,12 +2188,12 @@ PrefabInstance:
     - target: {fileID: 11400000, guid: c9f2277f2b4414ff9abf05e783890171, type: 3}
       propertyPath: leftGraphicsModel
       value: 
-      objectReference: {fileID: 11400010, guid: f908b62ffbe864392871ccab788e9c5e,
+      objectReference: {fileID: 11400010, guid: b98aad42527464873a3b79a966d2c040,
         type: 3}
     - target: {fileID: 11400000, guid: c9f2277f2b4414ff9abf05e783890171, type: 3}
       propertyPath: rightGraphicsModel
       value: 
-      objectReference: {fileID: 11400010, guid: 7f1ffbb7584d8421eb3981b9cd86b130,
+      objectReference: {fileID: 11400010, guid: 3df5e729e0f0b48d590b526bea84fc67,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9f2277f2b4414ff9abf05e783890171, type: 3}
