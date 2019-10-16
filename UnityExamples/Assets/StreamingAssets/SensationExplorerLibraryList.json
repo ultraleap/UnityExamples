@@ -1,4 +1,4 @@
-﻿{
+{
     "includeList": [
       "Circle",
       "Click",
@@ -15,6 +15,7 @@
       "PalmPresence",
       "Pointing",
       "Polyline",
+      "Pulse",
       "Ripple",
       "Rose",
       "Rotor",

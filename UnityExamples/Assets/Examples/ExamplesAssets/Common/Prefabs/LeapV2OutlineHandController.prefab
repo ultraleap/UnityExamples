@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 11400000}
   m_Layer: 0
-  m_Name: HandControllerV2
+  m_Name: LeapV2OutlineHandController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   separateLeftRight: 1
-  leftGraphicsModel: {fileID: 11400010, guid: b98aad42527464873a3b79a966d2c040, type: 3}
+  leftGraphicsModel: {fileID: 11400010, guid: ba0599ebb65fb4ba8a604c35065158d4, type: 3}
   leftPhysicsModel: {fileID: 11460542, guid: dc02f2d83c1ac4b4d9b4ec82df1b1732, type: 3}
-  rightGraphicsModel: {fileID: 11400010, guid: 3df5e729e0f0b48d590b526bea84fc67, type: 3}
+  rightGraphicsModel: {fileID: 11400010, guid: 827ae610ebe0c4ad8b5149fa262a4272, type: 3}
   rightPhysicsModel: {fileID: 11460542, guid: dc02f2d83c1ac4b4d9b4ec82df1b1732, type: 3}
   handParent: {fileID: 0}
   toolModel: {fileID: 0}
