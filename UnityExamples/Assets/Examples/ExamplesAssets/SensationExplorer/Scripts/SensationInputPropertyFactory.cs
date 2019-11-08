@@ -16,6 +16,9 @@ namespace UltrahapticsCoreAsset.UnityExamples
         public List<GameObject> inputRows = null;
         public IAutoMapper autoMapper_;
 
+        // These inputs should generally exist for all path-based Sensations
+        private string[] commonInputNames = { "drawFrequency", "intensity" };
+
         // Use this for initialization
         void Start()
         {
@@ -125,7 +128,10 @@ namespace UltrahapticsCoreAsset.UnityExamples
                 }
                 catch
                 {
-                    Debug.Log("No Min-Value/Max-Value MetaData for input: " + input.Name + " on Block: " + sensation.SensationBlock);
+                    if (Array.IndexOf(commonInputNames, inputName) == -1)
+                    {
+                        Debug.Log("No Min-Value/Max-Value MetaData for input: " + input.Name + " on Block: " + sensation.SensationBlock);
+                    }
                 }
  
                 // Ignore displaying auto-mapped values (which may be non-hidden)
