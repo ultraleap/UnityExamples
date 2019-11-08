@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 #if UNITY_STANDALONE_WIN
 using Controller = Leap.Controller;
@@ -19,8 +20,22 @@ namespace UltrahapticsCoreAsset.UnityExamples
 
         private static Controller leapController;
 
+        public bool uhConnected = false;
+        public bool leapConnected = false;
+
         private Color activeColor = new Color(93.0f / 255.0f, 203.0f / 255.0f, 126.0f / 255.0f);
         private Color inActiveColor = new Color(226.0f / 255.0f, 226.0f / 255.0f, 226.0f / 255.0f);
+
+        public string uhConnectionStatusText {
+            get { return UHDeviceConnectionText(); }
+            set { uhConnectionStatusText = value; }
+        }
+
+        public string leapConnectionStatusText
+        {
+            get { return LeapConnectionText(); }
+            set { leapConnectionStatusText = value; }
+        }
 
         // Update Hardware check every 3 Seconds
         private int nextUpdate = 3;
@@ -48,15 +63,32 @@ namespace UltrahapticsCoreAsset.UnityExamples
         // Update is called once per second
         void UpdateHardwareStatusIndicators()
         {
-            bool uhConnected = IsUltrahapticsDeviceConnected();
-            bool leapConnected = IsLeapDeviceConnected();
+            uhConnected = IsUltrahapticsDeviceConnected();
+            leapConnected = IsLeapDeviceConnected();
             UltrahapticsDeviceConnectedIndicator.image.color = uhConnected ? activeColor : inActiveColor;
             LeapDeviceConnectedIndicator.image.color = leapConnected ? activeColor : inActiveColor;
         }
 
+        private static bool usingMockDevice()
+        {
+            return SensationCore.Instance.EmitterSerialNumber().Equals("MOCK");
+        }
+
         public static bool IsUltrahapticsDeviceConnected()
         {
-            return SensationCore.Instance.IsEmitterConnected() && !SensationCore.Instance.EmitterSerialNumber().Equals("MOCK");
+            return SensationCore.Instance.IsEmitterConnected() && !usingMockDevice();
+        }
+
+        public static string UHDeviceConnectionText()
+        {
+            string connectionString = "Ultrahaptics Device: " + (usingMockDevice() ? "Mock Device in use." : SensationCore.Instance.EmitterSerialNumber());
+            return connectionString;
+        }
+
+        public static string LeapConnectionText()
+        {
+            string connectionString = "Leap Motion Device: " + (IsLeapDeviceConnected() ? "Leap Motion connected. " : "No Leap Motion device detected.");
+            return connectionString;
         }
 
         public static bool IsLeapDeviceConnected()
