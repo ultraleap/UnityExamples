@@ -18,3 +18,7 @@ ellipse = sh.createSensationFromPath("Ellipse",
 setMetaData(ellipse, "Allow-Transform", True)
 setMetaData(ellipse.sizeX, "Type", "Scalar")
 setMetaData(ellipse.sizeY, "Type", "Scalar")
+setMetaData(ellipse.sizeX, "Min-Value", "0.001")
+setMetaData(ellipse.sizeX, "Max-Value", "0.1")
+setMetaData(ellipse.sizeY, "Min-Value", "0.001")
+setMetaData(ellipse.sizeY, "Max-Value", "0.1")
