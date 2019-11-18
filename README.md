@@ -3,7 +3,8 @@ This repo includes additional Unity projects which demonstrate functionality of 
 
 [Note: To use these examples, you must download and import the latest UCA .unitypackage from here](https://developer.ultrahaptics.com/download/uca-download-now/)
 
-These projects have been built and tested with Unity 2019.1.8f on Windows 64-bit.
+**These projects have been built and tested with Unity 2019.1-2.x on _Windows 64-bit_. 
+macOS is not currently supported with these examples. Please contact support@ultraleap.com if you'd like to register interest in a macOS build.**
 
 To use these examples:
 
