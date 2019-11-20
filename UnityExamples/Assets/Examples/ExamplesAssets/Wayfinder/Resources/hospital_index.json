@@ -1,0 +1,42 @@
+﻿{
+   "Accident & Emergency": {
+      "BUILDING": "E",
+      "FLOOR": "1",
+      "ROUTE_ID": "0"
+   },   
+   "CT Scan": {
+      "BUILDING": "C",
+      "FLOOR": "1",
+      "ROUTE_ID": "1"
+   },
+   "Endoscopy": {
+      "BUILDING": "A",
+      "FLOOR": "1",
+      "ROUTE_ID": "2"
+   },
+   "Labour and Delivery": {
+      "BUILDING": "D",
+      "FLOOR": "3",
+      "ROUTE_ID": "3"
+   },
+   "MRI": {
+      "BUILDING": "D",
+      "FLOOR": "1",
+      "ROUTE_ID": "4"
+   },
+   "Outpatient Center": {
+      "BUILDING": "B",
+      "FLOOR": "1",
+      "ROUTE_ID": "5"
+   },
+   "Radiology": {
+      "BUILDING": "D",
+      "FLOOR": "1",
+      "ROUTE_ID": "6"
+   },
+   "Vascular Lab": {
+      "BUILDING": "C",
+      "FLOOR": "3",
+      "ROUTE_ID": "7"
+   }
+}

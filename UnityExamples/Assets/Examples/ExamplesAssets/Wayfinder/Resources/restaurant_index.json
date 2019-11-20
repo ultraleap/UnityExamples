@@ -1,0 +1,27 @@
+﻿{
+    "Coffee Morning": {
+        "BUILDING": "E",
+        "FLOOR": "1",
+        "ROUTE_ID": "0"
+    },
+    "Main Canteen": {
+        "BUILDING": "D",
+        "FLOOR": "1",
+        "ROUTE_ID": "1"
+    },
+    "Burger Shack": {
+        "BUILDING": "A",
+        "FLOOR": "1",
+        "ROUTE_ID": "2"
+    },
+    "Fish Hut": {
+        "BUILDING": "C",
+        "FLOOR": "3",
+        "ROUTE_ID": "3"
+    },
+    "Healthy Eats": {
+        "BUILDING": "B",
+        "FLOOR": "1",
+        "ROUTE_ID": "4"
+    }
+}
