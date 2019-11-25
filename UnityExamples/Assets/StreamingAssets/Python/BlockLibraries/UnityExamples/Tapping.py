@@ -17,6 +17,7 @@ tappingSensation = sh.createSensationFromPath("Tapping",
                                                 },
                                                 output = circlePathInstance.out,
                                                 drawFrequency = 70,
+                                                renderMode=sh.RenderMode.Loop,
                                                 intensity = pulserBlock.out)
 
 setMetaData(tappingSensation.min, "Input-Visibility", False)
