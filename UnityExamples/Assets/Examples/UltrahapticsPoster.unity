@@ -94,8 +94,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -263,6 +263,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -346,8 +347,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   onLeave_:
     m_PersistentCalls:
       m_Calls:
@@ -384,8 +383,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &326134351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,162 +407,162 @@ MonoBehaviour:
       IsVisible: 1
       Type: 
       InputGroup: 
-    - Name: handSwitchingPeriod
-      Value: {x: 0.1, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 1
-      Type: Scalar
-      InputGroup: 
-    - Name: leftHand_present
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: rightHand_present
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: leftHand_thumb_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: leftHand_indexFinger_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: leftHand_middleFinger_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: leftHand_ringFinger_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: leftHand_pinkyFinger_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: leftHand_palm_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: rightHand_thumb_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: rightHand_indexFinger_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: rightHand_middleFinger_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: rightHand_ringFinger_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: rightHand_pinkyFinger_distal_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: rightHand_palm_position
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: 
-      InputGroup: Hidden Inputs
-    - Name: virtualEmitterXInVirtualSpace
-      Value: {x: 1, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualEmitterYInVirtualSpace
-      Value: {x: 0, y: 1, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualEmitterZInVirtualSpace
-      Value: {x: 0, y: 0, z: 1}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualEmitterOriginInVirtualSpace
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualXInEmitterSpace
-      Value: {x: 1, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualYInEmitterSpace
-      Value: {x: 0, y: 1, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualZInEmitterSpace
-      Value: {x: 0, y: 0, z: 1}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: virtualOriginInEmitterSpace
-      Value: {x: 0, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 0
-      Type: Vector3
-      InputGroup: Hidden Inputs
-    - Name: drawFrequency
-      Value: {x: 70, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 1
-      Type: Scalar
-      InputGroup: 
-    - Name: intensity
-      Value: {x: 1, y: 0, z: 0}
-      Object: {fileID: 0}
-      IsVisible: 1
-      Type: Scalar
-      InputGroup: 
     - Name: scanPeriod
       Value: {x: 0.1, y: 0, z: 0}
       Object: {fileID: 0}
       IsVisible: 1
       Type: Scalar
       InputGroup: 
+    - Name: wrist_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: indexFinger_metacarpal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: middleFinger_metacarpal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: ringFinger_metacarpal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: pinkyFinger_metacarpal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: thumb_metacarpal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: palm_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: indexFinger_proximal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: middleFinger_proximal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: ringFinger_proximal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: pinkyFinger_proximal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: thumb_proximal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: indexFinger_intermediate_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: middleFinger_intermediate_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: ringFinger_intermediate_position
+      Value: {x: 1, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: pinkyFinger_intermediate_position
+      Value: {x: 0, y: 1, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: thumb_intermediate_position
+      Value: {x: 0, y: 0, z: 1}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: indexFinger_distal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: middleFinger_distal_position
+      Value: {x: 1, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: ringFinger_distal_position
+      Value: {x: 0, y: 1, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: pinkyFinger_distal_position
+      Value: {x: 0, y: 0, z: 1}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: thumb_distal_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: virtualEmitterXInVirtualSpace
+      Value: {x: 70, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: virtualEmitterYInVirtualSpace
+      Value: {x: 1, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: virtualEmitterZInVirtualSpace
+      Value: {x: 0.1, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
     supportsTransform_: 0
     TrackingObject: {fileID: 0}
 --- !u!82 &326134352
@@ -693,7 +690,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 343532792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
@@ -710,7 +707,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 343532792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
@@ -814,7 +811,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 392778923}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -823,8 +820,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -834,6 +829,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &392778926
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -907,12 +903,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2857ec373c9c7446f8893b6ad3508b58, type: 3}
---- !u!4 &417292412 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4764852863505650, guid: 2857ec373c9c7446f8893b6ad3508b58,
-    type: 3}
-  m_PrefabInstance: {fileID: 417292411}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &439622277
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +949,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 439622277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -968,8 +958,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 3d8c2a3c0891f41f895b3a4c4cf92da8, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
@@ -979,6 +967,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &439622281
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -987,63 +976,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439622277}
   m_CullTransparentMesh: 0
---- !u!1001 &515698295
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 417292412}
-    m_Modifications:
-    - target: {fileID: 166326, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_Name
-      value: LeapHandController
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 432918, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b9c7aaf0d314cb847a3b2a20e893f1b6, type: 3}
 --- !u!1 &584494712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1022,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 584494712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1099,8 +1031,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: efd58f67146e54cbabb8926a606b10a1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -1110,6 +1040,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &584494716
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1164,7 +1095,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 688479827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1173,8 +1104,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 80
@@ -1256,6 +1185,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -5895,6 +5825,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -10648,7 +10579,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1078218718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -10657,8 +10588,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 40

@@ -12,7 +12,7 @@ connect(Constant((0, 0, 0)), comparator.returnValueIfAGreaterThanB)
 connect(Constant((1, 0, 0)), comparator.returnValueIfAEqualsB)
 connect(Constant((1, 0, 0)), comparator.returnValueIfALessThanB)
 
-handScan = sh.createSensationFromPath("Hand Scan",
+handScan = sh.createSensationFromPath("HandScan",
                                       {
                                           ("t", scan.t) : (0, 0, 0),
                                           ("duration", scan.duration) : (2, 0, 0),
@@ -34,4 +34,3 @@ setMetaData(handScan.middleFinger_distal_position, "Input-Visibility", False)
 
 setMetaData(handScan.duration, "Type", "Scalar")
 setMetaData(handScan.barLength, "Type", "Scalar")
-setMetaData(handScan, "IsFinite", True)

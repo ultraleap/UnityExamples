@@ -6,8 +6,8 @@ pathInstance = createInstance("LinePath", "LinePathInstance")
 
 line = sh.createSensationFromPath("LineSensation",
                                   {
-                                      ("endpointA", pathInstance.endpointA) : (-0.04, 0.2, 0.0),
-                                       ("endpointB", pathInstance.endpointB) : (0.04, 0.2, 0.0),
+                                      ("endpointA", pathInstance.endpointA) : (-0.04, 0.0, 0.0),
+                                       ("endpointB", pathInstance.endpointB) : (0.04, 0.0, 0.0),
                                   },
                                   output = pathInstance.out,
                                   drawFrequency = 125,
