@@ -1,0 +1,344 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1560273427177706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4047394817871068}
+  - component: {fileID: 33167804159484346}
+  - component: {fileID: 23318374971596224}
+  - component: {fileID: 65726544226123806}
+  - component: {fileID: 4763113839326183133}
+  m_Layer: 0
+  m_Name: ForcefieldBeam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4047394817871068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560273427177706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.12, z: 0}
+  m_LocalScale: {x: 0.18, y: 0.24, z: 0.00001}
+  m_Children:
+  - {fileID: 4991173536511856}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33167804159484346
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560273427177706}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &23318374971596224
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560273427177706}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bccb35bef86e8436e8d1f92e47afbe4e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &65726544226123806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560273427177706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4763113839326183133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560273427177706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c95ef9df0002452b9c2908c23427cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dummyField_: 0
+  onEnter_:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6670626186088092958}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onLeave_:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6670626186088092958}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!1 &1750091861577102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4991173536511856}
+  - component: {fileID: 114883913072995518}
+  - component: {fileID: 6670626186088092958}
+  m_Layer: 0
+  m_Name: ForcefieldSensation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4991173536511856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750091861577102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4047394817871068}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114883913072995518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750091861577102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91ae49e2e4a84544bc556be39ad3eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcefieldQuad: {fileID: 4047394817871068}
+  forcefieldSensation: {fileID: 6670626186088092958}
+--- !u!114 &6670626186088092958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750091861577102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6528c6c93dba348eba3ed568d3e638c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensationBlock_: Forcefield
+  lastSetBlockToUCA_: Forcefield
+  running_: 1
+  priority_: 0
+  Inputs:
+    inputs_:
+    - Name: t
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 1
+      Type: 
+      InputGroup: 
+    - Name: handSwitchingPeriod
+      Value: {x: 0.01, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Scalar
+      InputGroup: Hidden Inputs
+    - Name: leftHand_present
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: rightHand_present
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: leftHand_palm_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: leftHand_palm_scaled_transverse
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: leftHand_palm_scaled_direction
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: rightHand_palm_position
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: rightHand_palm_scaled_transverse
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: rightHand_palm_scaled_direction
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: 
+      InputGroup: Hidden Inputs
+    - Name: virtualEmitterXInVirtualSpace
+      Value: {x: 1, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: virtualEmitterYInVirtualSpace
+      Value: {x: 0, y: 1, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: virtualEmitterZInVirtualSpace
+      Value: {x: 0, y: 0, z: 1}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: virtualEmitterOriginInVirtualSpace
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: virtualXInEmitterSpace
+      Value: {x: 1, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: virtualYInEmitterSpace
+      Value: {x: 0, y: 1, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: virtualZInEmitterSpace
+      Value: {x: 0, y: 0, z: 1}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: virtualOriginInEmitterSpace
+      Value: {x: 0, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 0
+      Type: Vector3
+      InputGroup: Hidden Inputs
+    - Name: drawFrequency
+      Value: {x: 100, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 1
+      Type: Scalar
+      InputGroup: 
+    - Name: intensity
+      Value: {x: 1, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 1
+      Type: Scalar
+      InputGroup: 
+    - Name: forcefieldCenter
+      Value: {x: 0, y: 0.1, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 1
+      Type: 
+      InputGroup: 
+    - Name: forcefieldUp
+      Value: {x: 0, y: 0.1, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 1
+      Type: 
+      InputGroup: 
+    - Name: forcefieldRight
+      Value: {x: 0.1, y: 0, z: 0}
+      Object: {fileID: 0}
+      IsVisible: 1
+      Type: 
+      InputGroup: 
+    supportsTransform_: 0
+    TrackingObject: {fileID: 0}

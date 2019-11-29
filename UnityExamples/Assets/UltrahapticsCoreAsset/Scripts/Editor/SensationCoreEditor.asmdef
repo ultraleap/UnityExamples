@@ -1,0 +1,12 @@
+{
+    "name": "SensationCoreEditor",
+    "references": [
+        "SensationCore"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
