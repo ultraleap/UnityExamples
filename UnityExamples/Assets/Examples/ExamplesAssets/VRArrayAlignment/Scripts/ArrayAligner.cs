@@ -113,6 +113,7 @@ public class ArrayAligner : MonoBehaviour
 
     private void Update()
     {
+        // Note: if errors occur here, check ExampleAssets/VRArrayAlignment/InputSettings.png for correct Input Settings.
         var leftTriggerCurrentlyPulled = Mathf.Approximately(Input.GetAxis("LeftVRTriggerAxis"), 1f);
         var rightTriggerCurrentlyPulled = Mathf.Approximately(Input.GetAxis("RightVRTriggerAxis"), 1f);
 
