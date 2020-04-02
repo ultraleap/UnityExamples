@@ -16,6 +16,7 @@ The UnityExamples Project includes the following Example Scenes
 - **Bubbles** - demonstrates how to trigger a Sensation when an animated bubble collides with the hand.
 - **ButtonAndSlider** - demonstrates how mid-air haptic controls (push button and slider) controlled via the hand, can be enhanced with haptic feedback.
 - **HandPolylineDesigner** - demonstrates how to use Polyline to design haptic paths which trace features of the hand.
+- **HapticPathDrawing** - demonstrates how to move a sensation along a path drawn using mouse input.
 - **MultiArrayLeftRight/MultiArrayUpDown** - demonstrates a couple of examples for using multiple Ultrahaptics Devices, using the SDK's "Distance-Based" device selection mode.
 - **PinchInteraction** - demonstrates a custom Data Source to recognise a basic pinch pose interaction
 - **SensationExplorer** - provides a showcase of Sensation-Producing Blocks in your project.
