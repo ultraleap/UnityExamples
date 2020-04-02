@@ -14,25 +14,39 @@ To use these examples:
 The UnityExamples Project includes the following Example Scenes
 
 - **Bubbles** - demonstrates how to trigger a Sensation when an animated bubble collides with the hand.
+
 ![](docs/BubblesScene.gif)
+
 - **ButtonAndSlider** - demonstrates how mid-air haptic controls (push button and slider) controlled via the hand, can be enhanced with haptic feedback.
+
 ![](docs/ButtonAndSlider.gif)
+
 - **HandPolylineDesigner** - demonstrates how to use Polyline to design haptic paths which trace features of the hand.
+
 ![](docs/HandPolylineDesigner.gif)
+
 - **HapticPathDrawing** - demonstrates how to move a sensation along a path drawn using mouse input.
+
 ![](docs/HapticPathDrawing.gif)
+
 - **MultiArrayLeftRight/MultiArrayUpDown** - demonstrates a couple of examples for using multiple Ultrahaptics Devices, using the SDK's "Distance-Based" device selection mode.
 - **PinchInteraction** - demonstrates a custom Data Source to recognise a basic pinch pose interaction
 - **SensationExplorer** - provides a showcase of Sensation-Producing Blocks in your project.
+
 ![](docs/SensationExplorer.gif)
+
 - **SimpleShapes** - demonstrates the ProjectPathOntoPlane Block, to produce simple haptic interaction with Cube, Sphere and Cylinder geometry.
+
 ![](docs/SimpleShapes.gif)
+
 - **Sphere** - demonstrates a Sphere Sensation Block - touch the moon!
 - **TouchBlock** - demonstrates how to position and animate a Sensation based on the position of a Cube. 
 - **TrackingOriginSetup** - demonstrates how to update the Tracking origin at runtime via a StreamingAssets/TrackingOrigin.json file.
 - **UltrahapticsPoster** - demonstrates how to design an interactive poster. When the hand touches the orb a 'Lightning' haptic is triggered with audio and visuals.
+
 ![](docs/UltrahapticsPoster.gif)
+
 - **VRArrayAlignment** - demonstrates how to align/anchor an Ultrahaptics array for VR applications. Point the controller at the origin of the array, then click the trigger to transform the camera Rig.
 - **Wayfinder** - demonstrates basic horizontal and vertical navigation with the palm.
-![](docs/Wayfinder.gif)
 
+![](docs/Wayfinder.gif)
